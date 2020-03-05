@@ -7,6 +7,49 @@
   <link href="css/reset.css" rel="stylesheet" type="text/css">
 
   <style>
+    nav
+    {
+      width: 100%;
+      height: 100px;
+      clear: both;
+      border-bottom: 1px solid black;
+    }
+
+    nav img
+    {
+      width: 180px;
+      float: left;
+      margin-top: 8px;
+      margin-left: 50px;
+      margin-right: 520px;
+    }
+
+    .bar
+    {
+      position: relative;
+      display: inline-block;
+    }
+
+    .bar a
+    {
+      margin-top: 39px;
+      font-size: 22px;
+      text-decoration: none;
+      font-family: arial;
+      color: black;
+      margin-left: 20px;
+    }
+
+    #home
+    {
+      color: #b71b1b;
+    }
+
+    .bar a:hover
+    {
+      color: #b71b1b;
+    }
+
     .dropdown
     {
       position: relative;
@@ -15,21 +58,22 @@
 
     .dropdown button
     {
-      margin: 20px 0px 0px 20px;
-      padding: 18px;
-      font-size: 18px;
-      background-color: gray;
+      margin-top: 39px;
+      font-size: 22px;
+      padding: 0px;
       border: none;
+      margin-left: 20px;
+      color: black;
     }
 
     .list
     {
       display: none;
       position: absolute;
-      width: 150px;
+      width: 180px;
       z-index: 1;
+      background-color: #EFEFEF;
       margin-left: 20px;
-      background-color: #D4D4D4;
     }
 
     .list a
@@ -38,13 +82,14 @@
       text-decoration: none;
       display: block;
       padding: 15px;
-      font-size: 15px;
+      font-size: 18px;
       font-family: arial;
     }
 
     .list a:hover
     {
-      background-color: gray;
+      background-color: #DBDBDB;
+      color: #b71b1b;
     }
 
     .dropdown:hover .list
@@ -59,7 +104,9 @@
 <body>
   <nav>
     <img src="images/logo.png">
-    <a href="#">Home</a>
+    <div class="bar">
+      <a id="home" href="#">Home</a>
+    </div>
     <div class="dropdown">
       <button>About The Team</button>
       <div class="list">
@@ -69,10 +116,10 @@
     </div>
 
     <div class="dropdown">
-      <button>The Robot</button>
+      <button>The Robots</button>
       <div class="list">
         <a href="#">Mark 6 Robot</a>
-        <a href="#">Past Robot</a>
+        <a href="#">Past Robots</a>
       </div>
     </div>
 
@@ -83,9 +130,10 @@
         <a href="#">Volunteering</a>
       </div>
     </div>
-    <a href="#">Photo Gallery</a>
+    <div class="bar">
+      <a id="gallery" href="#">Photo Gallery</a>
+    </div>
   </nav>
 </body>
 
 </html>
-
