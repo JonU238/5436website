@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Team 5436 | RoboNatick</title>
+
+  <!--ADDS RESET.CSS-->
+  <link href="css/reset.css" rel="stylesheet" type="text/css">
+
+  <style>
+    /*START OF NAVBAR CSS*/
+    nav
+    {
+      width: 100%;
+      height: 60px;
+      clear: both;
+      border-bottom: 1px solid black;
+      background-color: none;
+    }
+
+    nav img
+    {
+      width: 120px;
+      float: left;
+      margin-top: 2.3px;
+      margin-left: 50px;
+      margin-right: 550px;
+    }
+
+    /*MAKES NAVBAR LINKS LINE UP*/
+    .bar
+    {
+      position: relative;
+      display: inline-block;
+    }
+
+    .bar a
+    {
+      margin-top: 20px;
+      font-size: 20px;
+      text-decoration: none;
+      font-family: arial;
+      color: black;
+      margin-left: 30px;
+    }
+
+    /*TO SHOW WHICH PAGE YOUR ON*/
+    #mark
+    {
+      color: #b71b1b;
+    }
+
+    #robot
+    {
+      color: #B71b1b;
+    }
+
+    .bar a:hover
+    {
+      color: #b71b1b;
+    }
+
+    /*MAKES DROPDOWN*/
+    /*MAKES NAVBAR LINKS LINE UP*/
+    .dropdown
+    {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown button
+    {
+      margin-top: 20px;
+      font-size: 20px;
+      padding: 0px;
+      border: none;
+      margin-left: 30px;
+      color: black;
+      padding-bottom: 17px;
+      background-color: none;
+    }
+
+    .list
+    {
+      display: none;
+      position: absolute;
+      width: 180px;
+      z-index: 1;
+      background-color: #EFEFEF;
+      margin-left: 20px;
+    }
+
+    .list a
+    {
+      color: black;
+      text-decoration: none;
+      display: block;
+      padding: 15px;
+      font-size: 18px;
+      font-family: arial;
+    }
+
+    .list a:hover
+    {
+      background-color: #DBDBDB;
+      color: #b71b1b;
+    }
+
+    .dropdown:hover .list
+    {
+      display: block;
+    }
+    /*END OF DROPDOWN CSS*/
+    /*END OF NAVBAR CSS*/
+
+  </style>
+
+</head>
+
+<body>
+  <!--NAVBAR HTML-->
+  <nav>
+    <img src="images/logo.png">
+
+    <div class="bar">
+      <a id="home" href="index.html">Home</a>
+    </div>
+
+    <!--THESE ARE DROPDOWNS-->
+    <div class="dropdown">
+      <button id="about">About The Team</button>
+      <div class="list">
+        <a id="history" href="history.html">History</a>
+        <a id="members" href="members.html">Members</a>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <button id="robot">The Robots</button>
+      <div class="list">
+        <a id="mark" href="mark.html">Mark 6 Robot</a>
+        <a id="past" href="past.html">Past Robots</a>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <button id="outreach">Outreach</button>
+      <div class="list">
+        <a id="fundraising" href="fundraising.html">Fundraising</a>
+        <a id="volunteering" href="volunteering.html">Volunteering</a>
+      </div>
+    </div>
+    <!--END OF DROPDOWNS-->
+
+    <div class="bar">
+      <a id="gallery" href="gallery.html">Photo Gallery</a>
+    </div>
+
+  </nav>
+  <!--END OF NAVBAR HTML-->
+</body>
+
+</html>
