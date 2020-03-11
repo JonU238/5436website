@@ -46,7 +46,7 @@
       transition: all 0.5s;
     }
 
-    /*TO SHOW WHICH PAGE YOUR ON*/
+    /*TO SHOW WHICH PAGE YOU'RE ON*/
     #home
     {
       color: #b71b1b;
@@ -124,6 +124,84 @@
       background-attachment: fixed;
       background-position: center;
       background-size: cover;
+      margin-bottom: 25px;
+    }
+    .third {
+      width: 33.33%;
+      height: 33.33vw;
+      display: inline-block;
+      padding: 2%;
+      box-sizing: border-box;
+    }
+    .box {
+      width: 100%;
+      height: 100%;
+      border-radius: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: all 0.5s;
+      position: relative;
+      box-sizing: border-box;
+      padding: 5px;
+    }
+    .box::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      opacity: 0.3;
+      border-radius: 50px;
+      transition: all 0.5s;
+    }
+    .box:hover::before {
+      background-color: #b71b1b;
+    }
+    #teamBox {
+      background-image: url("images/Hero.JPG");
+      background-position: center;
+      background-size: cover;
+    }
+    #robotBox {
+      background-image: url("images/Hero.JPG");
+      background-position: center;
+      background-size: cover;
+    }
+    #volunteerBox {
+      background-image: url("images/Hero.JPG");
+      background-position: center;
+      background-size: cover;
+    }
+    .text {
+      font-family: arial;
+      font-size: 3vw;
+      text-align: center;
+      word-wrap: break-word;
+      color: white;
+      position: relative;
+      font-weight: bold;
+      width: 100%;
+    }
+    footer {
+      font-style: italic;
+      margin-top: 25px;
+      box-sizing: border-box;
+      padding: 10px;
+      font-family: arial;
+      text-align: center;
+      font-size: 12px;
+      background-color: #b71b1b;
+      line-height: 2;
+    }
+    footer img {
+      margin-left: 10px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      vertical-align: text-top;
     }
   </style>
 
@@ -171,6 +249,29 @@
   </nav>
   <!--END OF NAVBAR HTML-->
   <div id="hero"></div>
+
+  <div class="third">
+    <a href="members.html" class="box" id="teamBox">
+      <div class="text">MEET THE TEAM</div>
+    </a>
+  </div><!--
+--><div class="third">
+    <a href="mark.html" class="box" id="robotBox">
+      <div class="text">THE ROBOT</div>
+    </a>
+  </div><!--
+--><div class="third">
+    <a href="volunteering.html" class="box" id="volunteerBox">
+      <div class="text">VOLUNTEERING</div>
+    </a>
+  </div>
+
+  <footer>
+    Brought to you by the Alluminum Cobblers (Team 5436) of Natick High School. Special thanks to our wonderful sponsors:<br/>
+    <a href="https://mathworks.com"><img src="images/mathworks.png" alt="MathWorks logo" height="48px"/></a>
+    <a href="https://cognex.com"><img src="images/cognex.png" alt="Cognex logo" height="50px"></a>
+    <a href="https://krispykreme.com"><img src="images/krispykreme.png" alt="Krispy Kreme logo" height="58px"></a>
+  </footer>
 </body>
 
 </html>
