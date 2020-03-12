@@ -6,47 +6,10 @@
 
   <!--ADDS RESET.CSS-->
   <link href="css/reset.css" rel="stylesheet" type="text/css">
+  <link href="css/global.css" rel="stylesheet" type="text/css">
 
   <style>
-    /*START OF NAVBAR CSS*/
-    nav
-    {
-      width: 100%;
-      height: 60px;
-      clear: both;
-      border-bottom: 1px solid black;
-      background-color: none;
-      text-align: right;
-    }
-
-    nav img
-    {
-      width: 120px;
-      float: left;
-      margin-top: 2.3px;
-      margin-left: 50px;
-    }
-
-    /*MAKES NAVBAR LINKS LINE UP*/
-    .bar
-    {
-      position: relative;
-      display: inline-block;
-    }
-
-    .bar a
-    {
-      margin-top: 20px;
-      font-size: 20px;
-      text-decoration: none;
-      font-family: arial;
-      color: black;
-      margin-left: 15px;
-      margin-right: 15px;
-      transition: all 0.5s;
-    }
-
-    /*TO SHOW WHICH PAGE YOUR ON*/
+    /*TO SHOW WHICH PAGE YOU'RE ON*/
     #about
     {
       color: #b71b1b;
@@ -61,66 +24,7 @@
     {
       color: #b71b1b;
     }
-
-    /*MAKES DROPDOWN*/
-    /*MAKES NAVBAR LINKS LINE UP*/
-    .dropdown
-    {
-      position: relative;
-      display: inline-block;
-    }
-
-    .dropdown button
-    {
-      margin-top: 20px;
-      font-size: 20px;
-      padding: 0px;
-      border: none;
-      margin-left: 15px;
-      margin-right: 15px;
-      color: black;
-      padding-bottom: 17px;
-      background: none;
-    }
-
-    .list
-    {
-      position: absolute;
-      width: 180px;
-      z-index: 1;
-      background-color: #EFEFEF;
-      margin-left: 15px;
-      visibility: hidden;
-      opacity: 0;
-      transition: all .5s ease;
-    }
-
-    .list a
-    {
-      color: black;
-      text-decoration: none;
-      display: block;
-      padding: 15px;
-      font-size: 18px;
-      font-family: arial;
-      text-align: left;
-      transition: all 0.5s;
-    }
-
-    .list a:hover
-    {
-      background-color: #DBDBDB;
-      color: #b71b1b;
-    }
-
-    .dropdown:hover .list
-    {
-      visibility: visible;
-      opacity: 1;
-    }
-    /*END OF DROPDOWN CSS*/
-    /*END OF NAVBAR CSS*/
-
+    /* Body CSS */
     .container {
       height: calc(100vh - 61px);
       display: inline-flex;
@@ -143,11 +47,16 @@
       width: 100%;
       height: 100%;
       border-radius: 50px;
-      background-image: url('images/Hero.JPG');
       background-position: center;
       background-size: cover;
       box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.4);
       animation: fadeIn 1s;
+    }
+    #image1 {
+      background-image: url('images/Hero.JPG');
+    }
+    #image2 {
+      background-image: url('images/Hero.JPG');
     }
     .container h1 {
       font-weight: bold;
@@ -169,23 +78,6 @@
           opacity: 1;
           transform: translateY(0);
        }
-    }
-    footer {
-      font-style: italic;
-      margin-top: 25px;
-      box-sizing: border-box;
-      padding: 10px;
-      font-family: arial;
-      text-align: center;
-      font-size: 12px;
-      background-color: #b71b1b;
-      line-height: 2;
-    }
-    footer img {
-      margin-left: 10px;
-      margin-right: 10px;
-      margin-bottom: 10px;
-      vertical-align: text-top;
     }
   </style>
 
@@ -233,7 +125,7 @@
   </nav>
   <!--END OF NAVBAR HTML-->
   <div class="container left">
-    <div class="image"></div>
+    <div class="image" id="image1"></div>
   </div><!--
 --><div class="container right">
     <h1>Title Header Goes Here</h1>
@@ -244,7 +136,7 @@
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
   </div><!--
 --><div class="container right">
-    <div class="image"></div>
+    <div class="image" id="image2"></div>
   </div>
   <footer>
     Brought to you by the Aluminum Cobblers (Team 5436) of Natick High School. Special thanks to our wonderful sponsors:<br/>
