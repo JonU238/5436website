@@ -13,4 +13,8 @@ Im working on making it do it from atom so yea.
 1. Go to the Git tab
 2. Click on the "Stage All" button
 3. Write a commit message and click "Commit to master"
-4. Click on the "Push" button that appears on the bottom righ
+4. Click on the "Push" button that appears on the bottom right
+
+## To update your local repository with other people's changes
+1. Click on the "Fetch" button on the bottom right
+2. Click on the "Pull" button
