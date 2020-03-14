@@ -13,4 +13,4 @@ Im working on making it do it from atom so yea.
 1. Go to the Git tab
 2. Click on the "Stage All" button
 3. Write a commit message and click "Commit to master"
-4. Click on the "Push" button that appears on the bottom right
+4. Click on the "Push" button that appears on the bottom righ
