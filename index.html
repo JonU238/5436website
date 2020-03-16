@@ -14,25 +14,50 @@
     {
       color: #b71b1b;
     }
-
-    .bar a:hover
-    {
-      color: #b71b1b;
-    }
     /* Body CSS */
     #hero {
-      width: 100vw;
-      height: 60vh;
+      width: 100%;
+      height: calc(100vh - 60px);
       background-image: url('images/Hero.JPG');
       background-repeat: no-repeat;
       background-attachment: fixed;
       background-position: center;
       background-size: cover;
       margin-bottom: 25px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      padding: 100px;
+      box-sizing: border-box;
+      color: white;
+    }
+    #hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #b71b1b;
+      opacity: 0.6;
+      transition: all 0.5s;
+    }
+    #hero h1 {
+      font-size: 60px;
+      font-weight: bold;
+      line-height: 1.25;
+      position: relative;
+      margin-bottom: 50px;
+      animation: fadeIn 1.25s;
+    }
+    #hero h2 {
+      position: relative;
+      line-height: 1.5;
+      animation: fadeIn 1.5s;
+      font-size: 25px;
     }
     .third {
       width: 33.33%;
-      height: 33.33vw;
+      height: calc(100vh - 110px);
       display: inline-block;
       padding: 2%;
       box-sizing: border-box;
@@ -49,9 +74,10 @@
       position: relative;
       box-sizing: border-box;
       padding: 5px;
+      text-decoration: none;
       background-position: center;
       background-size: cover;
-      transition: all 0.5s;
+      transition: all 0.4s;
     }
     .box::before {
       content: "";
@@ -59,25 +85,28 @@
       top: 0; left: 0;
       width: 100%;
       height: 100%;
-      background-color: black;
-      opacity: 0.3;
+      background-color: #b71b1b;;
+      opacity: 0.7;
       border-radius: 50px;
       transition: all 0.5s;
+      opacity: 0;
     }
     .box:hover::before {
-      background-color: #b71b1b;
+      opacity: 0.8;
+    }
+    .box:hover .text {
+      opacity: 1;
     }
     #teamBox {
-      background-image: url("images/Hero.JPG");
+      background-image: url("images/iceskating.JPG");
     }
     #robotBox {
-      background-image: url("images/Hero.JPG");
+      background-image: url("images/mark6.JPG");
     }
     #volunteerBox {
-      background-image: url("images/Hero.JPG");
+      background-image: url("images/p1.JPG");
     }
     .text {
-      font-family: arial;
       font-size: 3vw;
       text-align: center;
       word-wrap: break-word;
@@ -85,6 +114,8 @@
       position: relative;
       font-weight: bold;
       width: 100%;
+      opacity: 0;
+      transition: all 1s;
     }
   </style>
 
@@ -96,7 +127,7 @@
     <img src="images/logo.png">
 
     <div class="bar">
-      <a id="home" href="#">Home</a>
+      <a id="home" href="index.html">Home</a>
     </div>
 
     <!--THESE ARE DROPDOWNS-->
@@ -131,30 +162,50 @@
 
   </nav>
   <!--END OF NAVBAR HTML-->
-  <div id="hero"></div>
+  <div id="hero">
+    <h1>This is FTC Team 5436, the Aluminum Cobblers.</h1>
+    <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h2>
+  </div>
 
   <div class="third">
     <a href="members.html" class="box" id="teamBox">
-      <div class="text">MEET THE TEAM</div>
+      <div class="text">Meet the Team</div>
     </a>
   </div><!--
 --><div class="third">
     <a href="mark.html" class="box" id="robotBox">
-      <div class="text">THE ROBOT</div>
+      <div class="text">The Robot</div>
     </a>
   </div><!--
 --><div class="third">
     <a href="volunteering.html" class="box" id="volunteerBox">
-      <div class="text">VOLUNTEERING</div>
+      <div class="text">Volunteering</div>
     </a>
   </div>
 
   <footer>
     Brought to you by the Alluminum Cobblers (Team 5436) of Natick High School. Special thanks to our wonderful sponsors:<br/>
-    <a href="https://mathworks.com" target="_blank"><img src="images/mathworks.png" alt="MathWorks logo" height="48px"/></a>
-    <a href="https://cognex.com"target="_blank"><img src="images/cognex.png" alt="Cognex logo" height="50px"></a>
-    <a href="https://krispykreme.com"target="_blank"><img src="images/krispykreme.png" alt="Krispy Kreme logo" height="58px"></a>
+    <a href="https://cognex.com"target="_blank"><img src="images/cognex.png" alt="Cognex logo"></a>
+    <a href="https://krispykreme.com"target="_blank"><img src="images/krispykreme.png" alt="Krispy Kreme logo"></a>
+    <a href="https://mathworks.com" target="_blank"><img src="images/mathworks.png" alt="MathWorks logo"/></a>
+    <a href="https://www.nescitech.org"target="_blank"><img src="images/nest.png" alt="New England Sci-Tech logo"></a>
+    <a href="https://www.sharporange.com"target="_blank"><img src="images/sharporange.png" alt="SharpOrange logo"></a>
+    <a href="https://www.youdoitelectronics.com"target="_blank"><img src="images/youdoitelectronics.png" alt="You-do-it Electronics logo"></a>
   </footer>
+  <script src="js/scrollreveal.js"></script>
+  <script>
+    ScrollReveal().reveal({
+      opacity: 0,
+      easing: "easing",
+      duration: 750,
+    })
+    ScrollReveal().reveal("#volunteerBox", {
+      delay: 500
+    });
+    ScrollReveal().reveal("#robotBox", {
+      delay: 250
+    });
+  </script>
 </body>
 
 </html>

@@ -19,10 +19,100 @@
     {
       color: #b71b1b;
     }
-
-    .bar a:hover
-    {
+    /* body */
+    #container {
+      text-align: center;
+      padding: 10% 10% 0 10%;
+      box-sizing: border-box;
+      line-height: 1.5;
+      animation: fadeIn 1s;
+    }
+    #container h1 {
+      font-weight: bold;
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+    /* tabs */
+    #tabs {
+      text-align: center;
+    }
+    .tab {
+      cursor: pointer;
+      display: inline-block;
+      border-radius: 50px;
+      text-align: center;
+      transition: all 0.5s;
+      padding: 10px 20px 10px 20px;
+      box-sizing: border-box;
+      margin: 5% 10px 5% 10px;
+      font-size: 25px;
+      animation: fadeIn 1s;
+      animation-delay: 0.5s;
+      animation-fill-mode: forwards;
+      opacity: 0;
+    }
+    .tab:hover {
       color: #b71b1b;
+    }
+    .tab.active {
+      background-color: #b71b1b;
+      color: white;
+      box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.4);
+    }
+    /* member bios */
+    #people {
+      width: 100%;
+      text-align: center;
+      padding-left: 5%;
+      padding-right: 5%;
+      box-sizing: border-box;
+      margin-bottom: 20px;
+    }
+    .card {
+      width: 100%;
+      background: white;
+      border-radius: 50px;
+      display: inline-block;
+      padding: 30px;
+      box-sizing: border-box;
+      box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.4);
+      text-align: left;
+      margin-bottom: 20px;
+    }
+    .icon {
+      width: 100px;
+      height: 100px;
+      box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.4);
+      display: inline-block;
+      margin-left: 10px;
+      margin-right: 30px;
+      border-radius: 100%;
+      vertical-align: top;
+      background-position: center;
+      background-size: cover;
+    }
+    .description {
+      display: inline-block;
+      width: calc(100% - 140px);
+    }
+    .description h2 {
+      font-weight: bold;
+      font-size: 25px;
+      margin-bottom: 15px;
+    }
+    .description p {
+      font-size: initial;
+      line-height: 1.5;
+    }
+    @keyframes fadeIn {
+       0% {
+          opacity: 0;
+          transform: translateY(-50px);
+       }
+       100% {
+          opacity: 1;
+          transform: translateY(0);
+       }
     }
   </style>
 
@@ -70,12 +160,160 @@
   </nav>
   <!--END OF NAVBAR HTML-->
 
+  <div id="container">
+    <h1>Meet the Aluminum Cobblers!</h1>
+    <p>Our team is made up of 18 committed members that each have a wide variety of interests and hobbies. We work closely together and organize ourselves accordingly in order to maximize our potential as a team.</p><br/>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </div>
+  <div id="tabs">
+    <a class="tab active" id="leaders">Leadership</a><a class="tab" id="builders">Building</a> <a class="tab" id="programmers">Programming</a><a class="tab" id="outreachers">Outreach</a>
+    <div id="people"></div> <!-- This is where all the team bios go (they're added in the JS) -->
+  </div>
+
   <footer>
-    Brought to you by the Aluminum Cobblers (Team 5436) of Natick High School. Special thanks to our wonderful sponsors:<br/>
-    <a href="https://mathworks.com"target="_blank"><img src="images/mathworks.png" alt="MathWorks logo" height="48px"/></a>
-    <a href="https://cognex.com"target="_blank"><img src="images/cognex.png" alt="Cognex logo" height="50px"></a>
-    <a href="https://krispykreme.com"target="_blank"><img src="images/krispykreme.png" alt="Krispy Kreme logo" height="58px"></a>
+    Brought to you by the Alluminum Cobblers (Team 5436) of Natick High School. Special thanks to our wonderful sponsors:<br/>
+    <a href="https://cognex.com"target="_blank"><img src="images/cognex.png" alt="Cognex logo"></a>
+    <a href="https://krispykreme.com"target="_blank"><img src="images/krispykreme.png" alt="Krispy Kreme logo"></a>
+    <a href="https://mathworks.com" target="_blank"><img src="images/mathworks.png" alt="MathWorks logo"/></a>
+    <a href="https://www.nescitech.org"target="_blank"><img src="images/nest.png" alt="New England Sci-Tech logo"></a>
+    <a href="https://www.sharporange.com"target="_blank"><img src="images/sharporange.png" alt="SharpOrange logo"></a>
+    <a href="https://www.youdoitelectronics.com"target="_blank"><img src="images/youdoitelectronics.png" alt="You-do-it Electronics logo"></a>
   </footer>
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/scrollreveal.js"></script>
+  <script>
+  //team bio information
+  var members = {
+    "leaders":
+    [{
+      "name": "James Drurey",
+      "description": "I'm James Drurey, I am a junior at the Natick High School, and I am the Administrative Leader of Team 5436, The Aluminum Cobblers. As the administrative leader, I help our team with organizing outreach events. Outside of robotics I work at a center called Kumon, where we help kids gain learning skills in math and reading. I joined this team during my sophomore year of high school because I have always had an interest in STEM activities.",
+      "image": "james.png"
+    },
+    {
+      "name": "Zachary Eigenmann",
+      "description": "Hi, I am Zack Eigenmann and I'm the Communications leader for Team 5436. I am currently a junior at Natick High and am in my second year as a member of the team. I work with James to connect to the community and work with the notebook. I have always loved building things and working with my hands, especially when engineering is involved. While I work with things not involving the robot, I still love building and continue to work on the robot as a sudo member of the Build team.",
+      "image": "zach.png"
+    },
+    {
+      "name": "Nolan Palmer",
+      "description": "My name is Nolan Palmer. I am the programming leader this year for 5436. I have always been interested in engineering and science. I have attended space camp in Huntsville Alabama 3 times and I have my Ham Amateur Radio General's License. Over last summer I volunteered at GEMS camp at the Natick Soldier Service Center, Army Labs, in Natick where I taught and set up experiments for 4th and 5th graders to learn science and have fun. When I got into high school I joined robotics to stimulate my engineering drive. I love coding and building things.",
+      "image": "nolan.png"
+    },
+    {
+      "name": "Logan Pfahler",
+      "description": "Hi, I'm Logan Pfahler and I'm the technical leader. I am a senior and this is my third year in robotics. As a freshman, one of my friends who was a member of 5436 told me I should join. Since I have always been interested in robotics and engineering, I decided to try it and really liked it. Outside of robotics, I love to play hockey. I've been playing since I was 5 years old and I'm currently playing for the Natick Comets. I also play ultimate frisbee in the spring. I'm really excited to continue to learn with all of our new members this year.",
+      "image": "logan.png"
+    }],
+    "builders":
+    [{
+      "name": "David Camaforte",
+      "description": "Hi, my name is David Camaforte. This is my second year at robotics club. I'm a builder and have spent several hours on the robot alongside the other builders on the team.",
+      "image": "david.png"
+    },
+    {
+      "name": "Joshua Connolly",
+      "description": "My name is Josh Connolly, I am a freshman in highschool, and this is my first year in robotics. I joined because it was an interesting concept to me due to my interest in technology and how I like to wood work if I can. I tend to only go on Thursdays and occasionally Wednesdays. But I got to GSA(Gender-Sexuality Alliance) on Tuesdays and dnd on Wednesdays.",
+      "image": "josh.png"
+    },
+    {
+      "name": "Jonathan Godfrey",
+      "description": "My name is Jonathan Godfrey. I am a sophomore at Natick High School and this is my second year participating in robotics. I joined robotics because I have always been interested in building new things. I really enjoy designing and building the robot with the rest of the team. I also run the 3d printing and (most) of the CAD.",
+      "image": "jonathan.png"
+    },
+    {
+      "name": "Aidan Nardelli",
+      "description": "My name is Aidan Nardelli, I'm 15 years old and in 10th grade at Natick High School, and this is my first year in Robotics. I've always been interested in technology and engineering related stuff, and after hearing from friends how much fun it is, I decided to join. Other than robotics, I've played hockey since I was around four, and intend to continue until at least the end of senior year. I'm on the build team, and help out with miscellaneous tasks that people need help with.",
+      "image": "aidan.png"
+    },
+    {
+      "name": "Ryan Nguyen",
+      "description": "I'm Ryan and this is my first year doing robotics. I am a senior and joined this club after a friend explained the club to me. I asked Nolan why he was selling donuts, and he explained to me that it was for robotics.  I liked the idea of building a robot for competition and decided to join. I joined as a builder and help run our Lego Robotics classes.",
+      "image": "ryann.png"
+    },
+    {
+      "name": "Samuel Saint-lot",
+      "description": "A Kid who's 14 years old, in 9th grade, and currently joined robotics. Who would ever think Samuel Saint-lot would join. Simple, cause of the people who understand my hobbies. New people to meet sharing the same ideology. (Working on robots is really awesome). Coming from Florida I didn't know what to do. New school and new life. Finding my way downtown into robotics gave me the boost I need to not be embarrassed in my hobbies and that there are people out there that I can talk to.",
+      "image": "sam.png"
+    }],
+    "programmers":
+    [{
+      "name": "Ben Greenberg",
+      "description": "My name is Ben Greenberg, I'm a freshman this year, I am a programmer on the robotics team 5436, I decided to become a programmer because since a young age I have been fascinated by robots and coding. This year I had planned to learn the fundamentals of Javascript, now i am able to program a simple auto and teleop.",
+      "image": "ben.png"
+    },
+    {
+      "name": "Max Horton",
+      "description": "My name is Max Horton. I'm a sophomore and joined freshman year the beginning of the year. I've always had an interest in robotics and technical projects, and this is a good way to learn and practice methods. I learned how to code on my own time and have been putting my knowledge to work in building the robot and helping it work properly, and hope to help the team have a robot that runs as smooth as possible.",
+      "image": "max.png"
+    },
+    {
+      "name": "Maggie Li",
+      "description": "I'm Maggie Li. I'm a sophomore and this is my first year of robotics. I really like learning about computer technology and software development and I'm familiar with languages like JavaScript, Python, Bash, HTML, and Java. I joined robotics because I've always been fascinated with how robots are made and I wanted to try something new to apply my skills to. Outside of robotics, I like to read and accumulate knowledge when I'm not wasting my time looking at random stuff.",
+      "image": "maggie.png"
+    },
+    {
+      "name": "Brianna Sahagian",
+      "description": "Hi, I am Brianna Sahagian. I am currently a senior at Natick High School and have participated in robotics throughout my high school career. I have been on team 5436 for three years now and have built for two years and programmed for two years. I enjoy robotics because of my interest in STEM, specifically in computer science and math. I hope to major in computer science in the future.",
+      "image": "brianna.png"
+    }],
+    "outreachers":
+    [{
+      "name": "Harold Drurey",
+      "description": "My name is Harold Drurey, and I am a sophomore at Natick High School. This is my second year participating in robotics. I joined robotics because I have always been interested in building new things. I really enjoy helping to build the robot with the team and working together with everyone.",
+      "image": "harold.png"
+    },
+    {
+      "name": "Ryan Hall",
+      "description": "My name is Ryan Hall. I am a senior at Natick High School. I started the robotics club during my Freshman year where I joined team 5436. I decided to join the team because I wanted to do something that would interest me after school, I decided on robotics. I've been working on the robot ever since the first day of robotics, and I'm continuing to work on our new robot.",
+      "image": "ryanh.png"
+    },
+    {
+      "name": "Alexa Harriss",
+      "description": "My name is Alexa Harriss! I'm currently a junior and I joined the club halfway through freshman year. I joined the club after my robotics elective got me interested in making robots! I'm learning to be a coder and want to help my team in any way I can. Other than Robotics I love animating and playing Dungeons and Dragons. I hope to be able to become a versatile member of the team!",
+      "image": "alexa.png"
+    },
+    {
+      "name": "Anna Mezhlauk",
+      "description": "I'm Anna Mezhlauk and I'm a sophomore here at Natick High School. This is my second year in robotics. As a kid, I always took things apart just to see how they worked, so I thought that robotics would be a perfect fit. Outside of robotics, I run cross country and nordic ski.",
+      "image": "anna.png"
+    }]
+  }
+
+  //loads default bios (leadership)
+  members.leaders.forEach(info => {
+    $("#people").append(`<div class="card"><div class="icon" style="background-image: url(images/team/${info.image})"></div><div class="description"><h2>${info.name}</h2><p>${info.description}</p></div>`)
+  })
+
+  //scroll animation
+  ScrollReveal().reveal("#people", {
+    distance: "-50px",
+    duration: 1000,
+    easing: "ease",
+    delay: 500
+  });
+  ScrollReveal().reveal(".card", {
+    distance: "-50px",
+    easing: "ease",
+    duration: 1000
+  });
+
+  var currentTab = "leaders"; //keeps track of current tab
+
+  //tab styling, changing bios based on tab clicked, animation
+  $(".tab").click(function() {
+    $("#people").empty();
+    $("#" + currentTab).removeClass("active");
+    currentTab = this.id;
+    $(this).addClass("active");
+    members[currentTab].forEach(info => {
+      $("#people").append(`<div class="card"><div class="icon" style="background-image: url(images/team/${info.image})"></div><div class="description"><h2>${info.name}</h2><p>${info.description}</p></div>`)
+    })
+
+    ScrollReveal().sync();
+  })
+
+  </script>
 </body>
 
 </html>

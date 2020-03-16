@@ -7,6 +7,7 @@
   <!--ADDS RESET.CSS-->
   <link href="css/reset.css" rel="stylesheet" type="text/css">
   <link href="css/global.css" rel="stylesheet" type="text/css">
+  <link href="css/justifiedGallery.min.css" rel="stylesheet" type="text/css">
 
   <style>
     /*TO SHOW WHICH PAGE YOU'RE ON*/
@@ -14,10 +15,112 @@
     {
       color: #b71b1b;
     }
-
-    .bar a:hover
-    {
-      color: #b71b1b;
+    /* body */
+    h1 {
+      text-align: center;
+      font-size: 40px;
+      font-weight: bold;
+      margin-top: 10%;
+      margin-bottom: 25px;
+    }
+    h2 {
+      text-align: center;
+      font-size: 25px;
+      font-style: italic;
+    }
+    h1, h2 {
+      animation: fadeIn 1s;
+    }
+    /* big gallery */
+    #container {
+      position: relative;
+      width: 100%;
+      height: 60vh;
+      margin-top: 5%;
+    }
+    #photogallery {
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      opacity: 0;
+      animation: fade 1s;
+      animation-delay: 0.5s;
+      animation-fill-mode: forwards;
+    }
+    #gallerydrop {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(0deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.5) 25%, rgba(255,255,255,0) 50%);
+      z-index: 3;
+    }
+    .big {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      object-fit: cover;
+    }
+    #bottom {
+      z-index: 1;
+    }
+    #top {
+      z-index: 2;
+      transition: opacity 1s;
+    }
+    #caption {
+      width: 80%;
+      position: absolute;
+      bottom: 15px;
+      left: 10%;
+      padding: 15px;
+      box-sizing: border-box;
+      line-height: 1.5;
+      border-radius: 15px;
+      z-index: 4;
+      color: white;
+    }
+    /* small gallery */
+    #smallgallery {
+      width: 90%;
+      margin-left: 5%;
+      margin-right: 5%;
+      margin-top: 5%;
+    }
+    #smallgallery a {
+      cursor: pointer;
+      border-radius: 25px;
+      box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.4);
+    }
+    /* enlarged image */
+    #backdrop {
+      height: 100vh;
+      width: 100vw;
+      position: fixed;
+      top: 0px;
+      left: 0px;
+      z-index: 5;
+      text-align: center;
+      display: none;
+      background-color: rgba(0,0,0,0.75);
+    }
+    #x {
+      position: fixed;
+      top: 50px;
+      right: 50px;
+      color: white;
+      font-size: 30px;
+      z-index: 6;
+      cursor: pointer;
+      display: none;
+    }
+    #zoom {
+      margin: 80px;
+      width: calc(100vw - 160px);
+      height: calc(100vh - 160px);
+      object-fit: scale-down;
+      animation: fadeIn 0.5s;
     }
   </style>
 
@@ -64,13 +167,108 @@
 
   </nav>
   <!--END OF NAVBAR HTML-->
-
+  <div id="backdrop">
+    <span id="x">X</span>
+    <img id="zoom"></div>
+  </div>
+  <h1>Explore Our Photo Gallery!</h1>
+  <h2>featuring countless images of our team from all throughout the robotics season</h2>
+  <div id="container">
+    <div id="photogallery">
+      <img class="big" id="bottom" alt="Picture of our team"/>
+      <img class="big" id="top" alt="Picture of our team"/>
+      <div id="gallerydrop"></div>
+      <div id="caption">An epic caption for an epic photo. Memorable photos go here</div>
+    </div>
+  </div>
+  <div id="smallgallery"></div> <!-- where the small images go -->
   <footer>
-    Brought to you by the Aluminum Cobblers (Team 5436) of Natick High School. Special thanks to our wonderful sponsors:<br/>
-    <a href="https://mathworks.com"target="_blank"><img src="images/mathworks.png" alt="MathWorks logo" height="48px"/></a>
-    <a href="https://cognex.com"target="_blank"><img src="images/cognex.png" alt="Cognex logo" height="50px"></a>
-    <a href="https://krispykreme.com"target="_blank"><img src="images/krispykreme.png" alt="Krispy Kreme logo" height="58px"></a>
+    Brought to you by the Alluminum Cobblers (Team 5436) of Natick High School. Special thanks to our wonderful sponsors:<br/>
+    <a href="https://cognex.com"target="_blank"><img src="images/cognex.png" alt="Cognex logo"></a>
+    <a href="https://krispykreme.com"target="_blank"><img src="images/krispykreme.png" alt="Krispy Kreme logo"></a>
+    <a href="https://mathworks.com" target="_blank"><img src="images/mathworks.png" alt="MathWorks logo"/></a>
+    <a href="https://www.nescitech.org"target="_blank"><img src="images/nest.png" alt="New England Sci-Tech logo"></a>
+    <a href="https://www.sharporange.com"target="_blank"><img src="images/sharporange.png" alt="SharpOrange logo"></a>
+    <a href="https://www.youdoitelectronics.com"target="_blank"><img src="images/youdoitelectronics.png" alt="You-do-it Electronics logo"></a>
   </footer>
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/jquery.justifiedGallery.min.js"></script>
+  <script src="js/scrollreveal.js"></script>
+  <script>
+    //big gallery
+    var pictures = [{
+      "image": "iceskating.JPG",
+      "caption": "An epic caption for an epic photo"
+    },
+    {
+      "image": "Hero.JPG",
+      "caption": "Memorable photos go here"
+    },
+    {
+      "image": "p1.JPG",
+      "caption": "An epic caption for an epic photo. Memorable photos go here"
+    }];
+
+    //starting picture
+    $("#top").attr("src", `images/${pictures[pictures.length - 1]["image"]}`);
+    $("#bottom").attr("src", `images/${pictures[0]["image"]}`);
+
+    //changes image
+    var count = 0; //keeps track of how many images have been loaded
+    function changeImage() {
+      let photo = pictures[count % pictures.length] //next image to load
+
+      if (count % 2 == 0) { //does one or the other every other image
+        $("#bottom").attr("src", `images/${photo["image"]}`);
+        $("#top").css("opacity", "0");
+        //puts image on bottom, fades out top
+      } else {
+        $("#top").attr("src", `images/${photo["image"]}`);
+        $("#top").css("opacity", "1");
+        //puts image on top, fades in top
+      }
+      $("#caption").html(photo["caption"])
+      count++;
+    }
+
+    //executes function every 5 seconds
+    let galleryChanges = setInterval(changeImage, 5000);
+
+    //small gallery
+    var smallpictures = ["Hero.JPG", "p1.JPG", "p2.JPG", "p3.JPG"];
+
+    //adds pictures
+    smallpictures.forEach(img => {
+      $("#smallgallery").append(`<a><img src="images/${img}"/></a>`);
+    })
+
+    //auto resizing pictures
+    $("#smallgallery").justifiedGallery({
+      lastRow : 'justify',
+      margins : 20,
+      randomize: true,
+      rowHeight: 200,
+      maxRowHeight: 300,
+      cssAnimation: true
+    }).on('jg.complete', function() {
+      ScrollReveal().reveal("#smallgallery a", {
+        scale: 0.8
+      });
+    });
+
+    //modal window
+    $("#smallgallery img").click(function() {
+      $("html").css("overflow", "hidden");
+      $("#zoom").attr("src", $(this).attr("src"));
+      $("#backdrop").css("display", "block");
+      $("#x").css("display", "block");
+    })
+    $("#x").click(function() {
+      $("html").css("overflow", "initial");
+      $("#backdrop").css("display", "none");
+      $("#x").css("display", "none");
+    })
+  </script>
 </body>
 
 </html>
