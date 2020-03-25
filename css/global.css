@@ -1,5 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,800&display=swap');
 html {
-  font-family: arial; /* Default font*/
+  font-family: nunito sans; /* Default font*/
+  scroll-behavior: smooth !important; /* for <a> tags */
+}
+/* Highlight color */
+*::selection {
+  background-color: #b71b1b;
+  color: white;
 }
 /*START OF NAVBAR CSS*/
 nav
@@ -18,7 +25,7 @@ nav
   box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.1);
 }
 
-nav img
+#logo
 {
   width: 120px;
   float: left;
@@ -39,7 +46,6 @@ nav img
   margin-top: 20px;
   font-size: 20px;
   text-decoration: none;
-  font-family: arial;
   color: black;
   margin-left: 15px;
   margin-right: 15px;
@@ -92,7 +98,6 @@ nav img
   display: block;
   padding: 15px;
   font-size: 18px;
-  font-family: arial;
   text-align: left;
   transition: all 0.5s;
 }
@@ -110,36 +115,82 @@ nav img
   max-height: 100px;
 }
 /*END OF DROPDOWN CSS*/
+/* menu */
+#menu {
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-image: url('../images/menu.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  display: none;
+}
 /*END OF NAVBAR CSS*/
 
 /* Footer CSS */
 footer
 {
-  font-style: italic;
-  margin-top: 25px;
   box-sizing: border-box;
-  padding: 10px;
-  font-family: arial;
-  text-align: center;
-  font-size: 12px;
   line-height: 2;
+  padding: 5%;
+  text-align: center;
 }
-footer img
-{
-  margin: 10px;
+footer a {
+  text-decoration: none;
+  color: black;
+}
+#info {
+  display: inline-block;
+  padding-right: 25px;
+}
+#connect img {
+  margin: 5px;
   height: 50px;
-  vertical-align: text-top;
+}
+.footerlink {
+  padding: 0 25px 0 25px;
+  text-align: left;
+  display: inline-block;
+  vertical-align: top;
+}
+.footerlink a {
+  display: block;
+}
+.footerlink span {
+  font-weight: bold;
+}
+#us {
+  font-size: 12px;
+  margin-top: 10px;
+  padding: 10px;
+}
+#connect {
+  vertical-align: top;
+  padding-left: 50px;
+  display: inline-block;
+  text-align: left;
+}
+#connect span {
+  font-weight: bold;
+}
+#connect a {
+  display: flex;
+  align-items: center;
+}
+#sponsors {
+  margin-bottom: 10px;
+}
+#sponsors img
+{
+  margin: 5px;
+  height: 30px;
 }
 /* End of footer CSS */
 /* Animations */
-@keyframes fade {
-  0% {
-     opacity: 0;
-  }
-  100% {
-     opacity: 1;
-  }
-}
 @keyframes fadeIn {
    0% {
       opacity: 0;
@@ -151,3 +202,51 @@ footer img
    }
 }
 /* End of animations */
+/* Responsive layout */
+@media screen and (max-width: 930px) {
+  nav {
+    text-align: center;
+    overflow: auto;
+    padding: 0;
+  }
+  #logo {
+    float: none;
+  }
+  #menu {
+    display: block;
+  }
+  nav .dropdown, nav .bar {
+    display: none;
+  }
+  nav.responsive {
+    height: 50vh;
+  }
+  nav.responsive #menu {
+    background-image: url('../images/menured.png')
+  }
+  nav.responsive .dropdown, nav.responsive .bar {
+    display: block;
+    width: 100%;
+    min-height: 50px;
+  }
+  nav.responsive .dropdown button {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 0;
+  }
+  nav.responsive .list {
+    position: static;
+    display: block;
+    width: 100%;
+    margin: 0;
+    box-shadow: none;
+  }
+  nav.responsive .list a {
+    text-align: center;
+  }
+  nav.responsive .bar a {
+    margin-top: 15px;
+    display: inline-block;
+  }
+}
+/* End of responsive layout */

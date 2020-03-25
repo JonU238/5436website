@@ -3,9 +3,16 @@
 
 <head>
   <title>Team 5436 | RoboNatick</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png">
 
   <!--ADDS RESET.CSS-->
   <link href="css/reset.css" rel="stylesheet" type="text/css">
+
+  <!-- Styling for the entire site -->
   <link href="css/global.css" rel="stylesheet" type="text/css">
 
   <style>
@@ -56,7 +63,7 @@
 <body>
   <!--NAVBAR HTML-->
   <nav>
-    <img src="images/logo.png">
+    <a href="index.html"><img src="images/logo.png" id="logo"></a>
 
     <div class="bar">
       <a id="home" href="index.html">Home</a>
@@ -92,6 +99,8 @@
       <a id="gallery" href="gallery.html">Photo Gallery</a>
     </div>
 
+    <div id="menu"></div>
+
   </nav>
   <!--END OF NAVBAR HTML-->
   <div class="container left">
@@ -109,15 +118,52 @@
     <img src="images/Hero.JPG" class="image" alt="picture"/>
   </div>
   <footer>
-    Brought to you by the Alluminum Cobblers (Team 5436) of Natick High School. Special thanks to our wonderful sponsors:<br/>
-    <a href="https://cognex.com"target="_blank"><img src="images/cognex.png" alt="Cognex logo"></a>
-    <a href="https://krispykreme.com"target="_blank"><img src="images/krispykreme.png" alt="Krispy Kreme logo"></a>
-    <a href="https://mathworks.com" target="_blank"><img src="images/mathworks.png" alt="MathWorks logo"/></a>
-    <a href="https://www.nescitech.org"target="_blank"><img src="images/nest.png" alt="New England Sci-Tech logo"></a>
-    <a href="https://www.sharporange.com"target="_blank"><img src="images/sharporange.png" alt="SharpOrange logo"></a>
-    <a href="https://www.youdoitelectronics.com"target="_blank"><img src="images/youdoitelectronics.png" alt="You-do-it Electronics logo"></a>
+    <div id="sponsors">
+      <a href="https://cognex.com"target="_blank"><img src="images/cognex.png" alt="Cognex logo"></a>
+      <a href="https://krispykreme.com"target="_blank"><img src="images/krispykreme.png" alt="Krispy Kreme logo"></a>
+      <a href="https://mathworks.com" target="_blank"><img src="images/mathworks.png" alt="MathWorks logo"/></a>
+      <a href="https://www.nescitech.org"target="_blank"><img src="images/nest.png" alt="New England Sci-Tech logo"></a>
+      <a href="https://www.sharporange.com"target="_blank"><img src="images/sharporange.png" alt="SharpOrange logo"></a>
+      <a href="https://www.youdoitelectronics.com"target="_blank"><img src="images/youdoitelectronics.png" alt="You-do-it Electronics logo"></a>
+    </div>
+    <div id="info">
+      <div class="footerlink">
+        <span>About the Team</span>
+        <a href="history.html">History</a>
+        <a href="members.html">Members</a>
+        <a href="gallery.html">Gallery</a>
+      </div>
+      <div class="footerlink">
+        <span>The Robots</span>
+        <a href="mark.html">Mark 6</a>
+        <a href="past.html">Past Robots</a>
+      </div>
+      <div class="footerlink">
+        <span>Outreach</span>
+        <a href="fundraising.html">Fundraising</a>
+        <a href="volunteering.html">Volunteering</a>
+      </div>
+    </div>
+    <div id="connect">
+      <span>Stay in Touch</span>
+      <a href="https://www.youtube.com/channel/UCIaG40kjnclREDBDG_jpzmA" target="_blank">
+        <img src="images/youtube.png"/ alt="Subscribe to our YouTube channel">
+        <p>The Aluminum Cobblers 5436</p>
+      </a>
+      <a href="https://www.instagram.com/aluminumcobblers_5436/" target="_blank">
+        <img src="images/instagram.png"  alt="Follow our Instagram"/>
+        <p>@aluminumcobblers_5436</p>
+      </a>
+      <a href="mailto:Natick5436@gmail.com" target="_blank">
+        <img src="images/gmail.png" id="insta" alt="Contact us at Natick5436@gmail.com"/>
+        <p>Natick5436@gmail.com</p>
+      </a>
+    </div>
+    <p id="us">Copyright &copy; 2020 RoboNatick 5436 Aluminum Cobblers<br/>Natick High School | 15 West Street | Natick, Massachusetts 01760</p>
   </footer>
+  <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/scrollreveal.js"></script>
+  <script src="js/global.js"></script>
   <script>
     ScrollReveal().reveal(".right", {
       opacity: 0,
