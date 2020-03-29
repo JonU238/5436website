@@ -18,3 +18,4 @@ Im working on making it do it from atom so yea.
 ## To update your local repository with other people's changes
 1. Click on the "Fetch" button on the bottom right
 2. Click on the "Pull" button
+
