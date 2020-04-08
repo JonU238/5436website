@@ -40,11 +40,11 @@
     }
     /* Body CSS */
     #container {
-      height: 100vh;
+      height: calc(100vh - 60px);
     }
     #hero {
       width: 100%;
-      height: calc(100vh + 60px);
+      height: 100vh;
       background: #b71b1b;
       background-image: url('images/Hero.JPG');
       background-repeat: no-repeat;
@@ -60,15 +60,13 @@
       position: absolute;
       top: 0px;
       text-align: center;
-      clip-path: polygon(100% 0, 100% 100%, 0% calc(100% - 60px), 0 0);
-      -webkit-clip-path: polygon(100% 0, 100% 100%, 0% calc(100% - 60px), 0 0);
     }
     #hero::before {
       content: "";
       position: absolute;
       left: 0;
       width: 100%;
-      height: calc(100vh + 60px);
+      height: 100vh;
       background-color: #42378f;
       background-image: linear-gradient(315deg, #42378f 0%, #f53844 74%);
       opacity: 0.65;
@@ -296,7 +294,6 @@
   </div>
 
   <footer>
-    <div class="wave"></div>
     <div id="sponsors">
       <p>Special thanks to our wonderful sponsors</p>
       <a href="https://cognex.com"target="_blank"><img src="images/cognex.png" alt="Cognex logo"></a>
