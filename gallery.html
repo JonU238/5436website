@@ -16,11 +16,6 @@
   <link href="css/global.css" rel="stylesheet" type="text/css">
 
   <style>
-    /*TO SHOW WHICH PAGE YOU'RE ON*/
-    #gallery
-    {
-      color: #b71b1b;
-    }
     /* big gallery */
     #container {
       position: relative;
@@ -73,8 +68,7 @@
     }
     /* small gallery */
     #second {
-      padding: 60px;
-      box-sizing: border-box;
+      padding: 20px;
     }
     #tabs {
       text-align: center;
@@ -82,7 +76,6 @@
       display: inline-block;
       vertical-align: top;
       padding: 2%;
-      box-sizing: border-box;
       position: sticky;
       top: 60px;
     }
@@ -94,7 +87,6 @@
       transition: all 0.5s;
       padding: 15px;
       margin: 10px 0 10px 0;
-      box-sizing: border-box;
       font-size: 20px;
       display: block;
       color: black;
@@ -115,7 +107,6 @@
     #smallgallery div {
       width: calc(100%/3);
       height: calc((100vh - 60px)/3);
-      box-sizing: border-box;
       display: inline-block;
       padding: 1%;
     }
@@ -125,6 +116,8 @@
       cursor: pointer;
       border-radius: 15px;
       object-fit: cover;
+      backface-visibility: hidden; /* transition cohesion */
+      transition: all 0.5s;
     }
     #smallgallery a {
       width: 100%;
@@ -133,6 +126,7 @@
       overflow: hidden;
       border-radius: 15px;
       box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+      transition: all 0.5s;
       will-change: transform; /* to fix the safari bug */
     }
     #smallgallery img:hover {
@@ -214,7 +208,7 @@
     <div class="dropdown">
       <button id="about">About The Team</button>
       <div class="list">
-        <a id="history" href="history.html">History</a>
+        <a id="history" href="history.html">Past Seasons</a>
         <a id="members" href="members.html">Members</a>
       </div>
     </div>
@@ -232,12 +226,13 @@
       <div class="list">
         <a id="fundraising" href="fundraising.html">Fundraising</a>
         <a id="volunteering" href="volunteering.html">Volunteering</a>
+        <a id="collaborations" href="collaborations.html">Collaborations</a>
       </div>
     </div>
     <!--END OF DROPDOWNS-->
 
     <div class="bar">
-      <a id="gallery" href="gallery.html">Photo Gallery</a>
+      <a id="gallery" href="gallery.html" class="currentPage">Photo Gallery</a>
     </div>
 
     <div id="menu"></div>
@@ -269,7 +264,9 @@
   --><div id="smallgallery"></div> <!-- where the small images go -->
   </div>
   <footer>
+    <div class="wave"></div>
     <div id="sponsors">
+      <p>Special thanks to our wonderful sponsors</p>
       <a href="https://cognex.com"target="_blank"><img src="images/cognex.png" alt="Cognex logo"></a>
       <a href="https://krispykreme.com"target="_blank"><img src="images/krispykreme.png" alt="Krispy Kreme logo"></a>
       <a href="https://mathworks.com" target="_blank"><img src="images/mathworks.png" alt="MathWorks logo"/></a>
@@ -280,7 +277,7 @@
     <div id="info">
       <div class="footerlink">
         <span>About the Team</span>
-        <a href="history.html">History</a>
+        <a href="history.html">Past Seasons</a>
         <a href="members.html">Members</a>
         <a href="gallery.html">Gallery</a>
       </div>
@@ -293,6 +290,7 @@
         <span>Outreach</span>
         <a href="fundraising.html">Fundraising</a>
         <a href="volunteering.html">Volunteering</a>
+        <a href="collaborations.html">Collaborations</a>
       </div>
     </div>
     <div id="connect">
@@ -331,8 +329,8 @@
     }];
 
     //starting picture
-    //$("#top").attr("src", `images/${pictures[0]["image"]}`);
     $("#bottom").attr("src", `images/${pictures[0]["image"]}`);
+    $("#caption").html(pictures[0]["caption"])
 
     //changes image
     var count = 1; //keeps track of how many images have been loaded
@@ -371,11 +369,7 @@
     //scrolling
     ScrollReveal().reveal("#smallgallery div", {
       opacity: 0,
-      scale: 0.9,
-      afterReveal: function() {
-        $("#smallgallery a").css("transition", "all 0.5s");
-        $("#smallgallery img").css("transition", "all 0.5s");
-      }
+      scale: 0.9
     })
 
     var currentTab = "building"; //keeps track of current tab

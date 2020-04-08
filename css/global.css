@@ -2,11 +2,15 @@
 html {
   font-family: nunito sans; /* Default font*/
   scroll-behavior: smooth !important; /* for <a> tags */
+  overflow-x: hidden; /* hides overflow content */
 }
 /* Highlight color */
 *::selection {
   background-color: #b71b1b;
   color: white;
+}
+* {
+  box-sizing: border-box; /* contains the padding inside the element dimensions */
 }
 /*START OF NAVBAR CSS*/
 nav
@@ -21,8 +25,8 @@ nav
   z-index: 1;
   padding-left: 50px;
   padding-right: 50px;
-  box-sizing: border-box;
   box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.1);
+  transition: background 0.5s;
 }
 
 #logo
@@ -69,13 +73,14 @@ nav
   font-size: 20px;
   padding: 0px;
   border: none;
+  outline: none;
   margin-left: 15px;
   margin-right: 15px;
   color: black;
   padding-bottom: 15px;
   background: none;
+  transition: all 0.5s;
 }
-
 .list
 {
   position: absolute;
@@ -85,10 +90,12 @@ nav
   margin-left: 15px;
   visibility: hidden;
   opacity: 0;
-  max-height: 0px;
   overflow: hidden;
   box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.25);
-  transition: all .5s ease;
+  transition: all .25s;
+  padding: 10px;
+  transform: translateY(15px);
+  border-radius: 5px;
 }
 
 .list a
@@ -100,6 +107,7 @@ nav
   font-size: 18px;
   text-align: left;
   transition: all 0.5s;
+  border-radius: 10px;
 }
 
 .list a:hover
@@ -112,7 +120,7 @@ nav
 {
   visibility: visible;
   opacity: 1;
-  max-height: 100px;
+  transform: translateY(0px);
 }
 /*END OF DROPDOWN CSS*/
 /* menu */
@@ -129,19 +137,67 @@ nav
   background-size: contain;
   display: none;
 }
+/* current page */
+.bar a.currentPage, .dropdown button.currentPage, .list a.currentPage {
+  color: #b71b1b;
+}
 /*END OF NAVBAR CSS*/
-
+/* Corona stuff */
+#corona {
+  position: fixed;
+  bottom: 2%;
+  right: 0;
+  background: #222;
+  padding: 15px;
+  border-radius: 15px 0 0 15px;
+  color: white;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);
+  transition: all 0.5s;
+  text-decoration: none;
+}
+#corona:hover {
+  box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.5);
+}
 /* Footer CSS */
 footer
 {
-  box-sizing: border-box;
+  padding-bottom: 25px;
   line-height: 2;
-  padding: 5%;
   text-align: center;
+  background: #eee
 }
 footer a {
   text-decoration: none;
   color: black;
+}
+.wave {
+  position: relative;
+  height: 70px;
+  width: 100%;
+  background: white;
+  bottom: 0;
+  margin-bottom: 75px;
+}
+.wave::before, .wave::after {
+  content: "";
+  display: block;
+  position: absolute;
+  border-radius: 100% 50%;
+}
+
+.wave::before {
+  width: 53.5%;
+  height: 110%;
+  background-color: #eee;
+  right: 0;
+  top: 60%;
+}
+.wave::after {
+  width: 53.5%;
+  height: 100%;
+  background-color: white;
+  left: 0;
+  top: 40%;
 }
 #info {
   display: inline-block;
@@ -170,7 +226,6 @@ footer a {
 }
 #connect {
   vertical-align: top;
-  padding-left: 50px;
   display: inline-block;
   text-align: left;
 }
@@ -182,12 +237,19 @@ footer a {
   align-items: center;
 }
 #sponsors {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 #sponsors img
 {
-  margin: 5px;
-  height: 30px;
+  width: 150px;
+  height: 40px;
+  object-fit: scale-down;
+  margin: 5px 10px;
+}
+#sponsors p {
+  font-weight: bold;
+  margin-bottom: 20px;
+  font-size: 20px;
 }
 /* End of footer CSS */
 /* Animations */
@@ -206,7 +268,6 @@ footer a {
 @media screen and (max-width: 930px) {
   nav {
     text-align: center;
-    overflow: auto;
     padding: 0;
   }
   #logo {
@@ -215,11 +276,15 @@ footer a {
   #menu {
     display: block;
   }
+  html.responsive {
+    overflow: hidden;
+  }
   nav .dropdown, nav .bar {
     display: none;
   }
   nav.responsive {
-    height: 50vh;
+    height: 100vh;
+    overflow: auto;
   }
   nav.responsive #menu {
     background-image: url('../images/menured.png')
@@ -228,18 +293,25 @@ footer a {
     display: block;
     width: 100%;
     min-height: 50px;
+    animation: fadeIn 1s;
+    height: auto;
   }
   nav.responsive .dropdown button {
     margin-top: 15px;
     margin-bottom: 15px;
     padding: 0;
+    font-size: 25px;
+    font-weight: bold;
   }
   nav.responsive .list {
     position: static;
-    display: block;
     width: 100%;
     margin: 0;
     box-shadow: none;
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+    background: none;
   }
   nav.responsive .list a {
     text-align: center;
@@ -247,6 +319,8 @@ footer a {
   nav.responsive .bar a {
     margin-top: 15px;
     display: inline-block;
+    font-size: 25px;
+    font-weight: bold;
   }
 }
 /* End of responsive layout */

@@ -15,25 +15,19 @@
   <!-- Styling for the entire site -->
   <link href="css/global.css" rel="stylesheet" type="text/css">
 
-  <style>
-    /*TO SHOW WHICH PAGE YOU'RE ON*/
-    #outreach
-    {
-      color: #b71b1b;
-    }
+  <script src="js/scrollreveal.js"></script>
 
-    #fundraising
-    {
-      color: #b71b1b;
-    }
+  <style>
     /* Body CSS */
+    html.sr .container { /* Prevents animation flickering */
+      visibility: hidden;
+    }
     .container {
       height: calc(100vh - 60px);
       display: inline-flex;
       flex-direction: column;
       justify-content: center;
       vertical-align: top;
-      box-sizing: border-box;
       line-height: 1.5;
     }
     .left {
@@ -73,7 +67,7 @@
     <div class="dropdown">
       <button id="about">About The Team</button>
       <div class="list">
-        <a id="history" href="history.html">History</a>
+        <a id="history" href="history.html">Past Seasons</a>
         <a id="members" href="members.html">Members</a>
       </div>
     </div>
@@ -87,10 +81,11 @@
     </div>
 
     <div class="dropdown">
-      <button id="outreach">Outreach</button>
+      <button id="outreach" class="currentPage">Outreach</button>
       <div class="list">
-        <a id="fundraising" href="fundraising.html">Fundraising</a>
+        <a id="fundraising" class="currentPage" href="fundraising.html">Fundraising</a>
         <a id="volunteering" href="volunteering.html">Volunteering</a>
+        <a id="collaborations" href="collaborations.html">Collaborations</a>
       </div>
     </div>
     <!--END OF DROPDOWNS-->
@@ -107,18 +102,27 @@
     <img src="images/Hero.JPG" class="image" alt="picture"/>
   </div><!--
   --><div class="container right">
-    <h1>Title Header Goes Here</h1>
+    <h1>Sponsorships</h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
   </div>
   <div class="container left">
-    <h1>Title Header Goes Here</h1>
+    <h1>Krispy Kreme Sales</h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
   </div><!--
   --><div class="container right">
     <img src="images/Hero.JPG" class="image" alt="picture"/>
   </div>
+  <div class="container left">
+    <img src="images/Hero.JPG" class="image" alt="picture"/>
+  </div><!--
+  --><div class="container right">
+    <h1>Natick Days</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </div>
   <footer>
+    <div class="wave"></div>
     <div id="sponsors">
+      <p>Special thanks to our wonderful sponsors</p>
       <a href="https://cognex.com"target="_blank"><img src="images/cognex.png" alt="Cognex logo"></a>
       <a href="https://krispykreme.com"target="_blank"><img src="images/krispykreme.png" alt="Krispy Kreme logo"></a>
       <a href="https://mathworks.com" target="_blank"><img src="images/mathworks.png" alt="MathWorks logo"/></a>
@@ -129,7 +133,7 @@
     <div id="info">
       <div class="footerlink">
         <span>About the Team</span>
-        <a href="history.html">History</a>
+        <a href="history.html">Past Seasons</a>
         <a href="members.html">Members</a>
         <a href="gallery.html">Gallery</a>
       </div>
@@ -142,6 +146,7 @@
         <span>Outreach</span>
         <a href="fundraising.html">Fundraising</a>
         <a href="volunteering.html">Volunteering</a>
+        <a href="collaborations.html">Collaborations</a>
       </div>
     </div>
     <div id="connect">
@@ -162,7 +167,6 @@
     <p id="us">Copyright &copy; 2020 RoboNatick 5436 Aluminum Cobblers<br/>Natick High School | 15 West Street | Natick, Massachusetts 01760</p>
   </footer>
   <script src="js/jquery-3.4.1.min.js"></script>
-  <script src="js/scrollreveal.js"></script>
   <script src="js/global.js"></script>
   <script>
     ScrollReveal().reveal(".right", {

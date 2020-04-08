@@ -15,46 +15,77 @@
   <!-- Styling for the entire site -->
   <link href="css/global.css" rel="stylesheet" type="text/css">
 
-  <style>
-    /*TO SHOW WHICH PAGE YOU'RE ON*/
-    #about
-    {
-      color: #b71b1b;
-    }
+  <script src="js/scrollreveal.js"></script>
 
-    #history
-    {
+  <style>
+    /* Body CSS */
+    #timeline {
+      padding: 20px;
+    }
+    #tabs {
+      text-align: center;
+      width: 230px;
+      display: inline-block;
+      vertical-align: top;
+      padding: 2%;
+      position: sticky;
+      top: 60px;
+    }
+    .tab {
+      display: inline-block;
+      border-radius: 25px;
+      text-align: center;
+      transition: all 0.5s;
+      padding: 15px;
+      margin: 10px 0 10px 0;
+      font-size: 20px;
+      display: block;
+      color: black;
+      text-decoration: none;
+    }
+    .tab small {
+      font-size: 12px;
+    }
+    .tab:hover {
       color: #b71b1b;
     }
-    /* Body CSS */
-    .container {
-      height: calc(100vh - 60px);
-      display: inline-flex;
-      flex-direction: column;
-      justify-content: center;
-      vertical-align: top;
-      box-sizing: border-box;
-      line-height: 1.5;
+    .tab.active {
+      background-color: #b71b1b;
+      color: white;
+      box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.4);
     }
-    .left {
-      padding: 5%;
-      width: 40%;
+    #content {
+      width: calc(100% - 230px);
+      display: inline-block;
+      padding: 2%;
     }
-    .right {
-      padding: 5%;
-      width: 60%;
+    #content * {
+      animation: dropIn 0.5s
     }
-    .image {
+    #content img {
       width: 100%;
-      height: 100%;
-      border-radius: 50px;
-      box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.4);
+      height: 50vh;
       object-fit: cover;
+      margin-bottom: 50px;
+      border-radius: 15px;
     }
-    .container h1 {
+    #content h1 {
       font-weight: bold;
       font-size: 40px;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
+    }
+    #content p {
+      line-height: 1.5
+    }
+    @keyframes dropIn {
+       0% {
+          opacity: 0;
+          transform: translateY(50px);
+       }
+       100% {
+          opacity: 1;
+          transform: translateY(0);
+       }
     }
   </style>
 
@@ -71,9 +102,9 @@
 
     <!--THESE ARE DROPDOWNS-->
     <div class="dropdown">
-      <button id="about">About The Team</button>
+      <button id="about" class="currentPage">About The Team</button>
       <div class="list">
-        <a id="history" href="history.html">History</a>
+        <a id="history" class="currentPage" href="history.html">Past Seasons</a>
         <a id="members" href="members.html">Members</a>
       </div>
     </div>
@@ -91,6 +122,7 @@
       <div class="list">
         <a id="fundraising" href="fundraising.html">Fundraising</a>
         <a id="volunteering" href="volunteering.html">Volunteering</a>
+        <a id="collaborations" href="collaborations.html">Collaborations</a>
       </div>
     </div>
     <!--END OF DROPDOWNS-->
@@ -103,22 +135,20 @@
 
   </nav>
   <!--END OF NAVBAR HTML-->
-  <div class="container left">
-    <img src="images/Hero.JPG" class="image" alt="picture"/>
-  </div><!--
---><div class="container right">
-    <h1>Title Header Goes Here</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  </div>
-  <div class="container left">
-    <h1>Title Header Goes Here</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  </div><!--
---><div class="container right">
-    <img src="images/Hero.JPG" class="image" alt="picture"/>
+  <div id="timeline">
+    <div id="tabs">
+      <a class="tab active" id="skystone" href="#">Skystone<br/><small>2019-2020</small></a>
+      <a class="tab" id="rover" href="#">Rover Ruckus<br/><small>2018-2019</small></a>
+      <a class="tab" id="relic" href="#">Relic Recovery<br/><small>2017-2018</small></a>
+      <a class="tab" id="velocity" href="#">Velocity Vortex<br/><small>2016-2017</small></a>
+      <a class="tab" id="beyond" href="#">Beyond<br/><small>≤2016</small></a>
+    </div><!--
+  --><div id="content"></div> <!-- where the text goes -->
   </div>
   <footer>
+    <div class="wave"></div>
     <div id="sponsors">
+      <p>Special thanks to our wonderful sponsors</p>
       <a href="https://cognex.com"target="_blank"><img src="images/cognex.png" alt="Cognex logo"></a>
       <a href="https://krispykreme.com"target="_blank"><img src="images/krispykreme.png" alt="Krispy Kreme logo"></a>
       <a href="https://mathworks.com" target="_blank"><img src="images/mathworks.png" alt="MathWorks logo"/></a>
@@ -129,7 +159,7 @@
     <div id="info">
       <div class="footerlink">
         <span>About the Team</span>
-        <a href="history.html">History</a>
+        <a href="history.html">Past Seasons</a>
         <a href="members.html">Members</a>
         <a href="gallery.html">Gallery</a>
       </div>
@@ -142,6 +172,7 @@
         <span>Outreach</span>
         <a href="fundraising.html">Fundraising</a>
         <a href="volunteering.html">Volunteering</a>
+        <a href="collaborations.html">Collaborations</a>
       </div>
     </div>
     <div id="connect">
@@ -162,23 +193,49 @@
     <p id="us">Copyright &copy; 2020 RoboNatick 5436 Aluminum Cobblers<br/>Natick High School | 15 West Street | Natick, Massachusetts 01760</p>
   </footer>
   <script src="js/jquery-3.4.1.min.js"></script>
-  <script src="js/scrollreveal.js"></script>
   <script src="js/global.js"></script>
   <script>
-    ScrollReveal().reveal(".right", {
-      opacity: 0,
-      distance: "-50px",
-      easing: "ease",
-      duration: 1000,
-      delay: 500
-    });
-    ScrollReveal().reveal(".left", {
-      opacity: 0,
-      distance: "100px",
-      easing: "ease",
-      duration: 1000,
-      origin: "left"
-    });
+    let content = {
+      "skystone": {
+        "image": "images/Hero.JPG",
+        "heading": "2019-2020: Skystone",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      },
+      "rover": {
+        "image": "images/Hero.JPG",
+        "heading": "2018-2019: Rover Ruckus",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      },
+      "relic": {
+        "image": "images/Hero.JPG",
+        "heading": "2017-2018: Relic Recovery",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      },
+      "velocity": {
+        "image": "images/Hero.JPG",
+        "heading": "2016-2017: Velocity Vortex",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      },
+      "beyond": {
+        "image": "images/Hero.JPG",
+        "heading": "Beyond",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      }
+    }
+    var currentTab = "skystone"; //keeps track of current tab
+
+    //loads default content
+    $("#content").append(`<img src="${content[currentTab]["image"]}" alt="${content[currentTab]["heading"]}"><h1>${content[currentTab]["heading"]}</h1><p>${content[currentTab]["text"]}</p>`)
+
+    //tab styling, changing images based on tab clicked, animation
+    $(".tab").click(function() {
+      $("#content").empty();
+      $("#" + currentTab).removeClass("active");
+      currentTab = this.id;
+      $(this).addClass("active");
+      $("#content").append(`<img src="${content[currentTab]["image"]}" alt="${content[currentTab]["heading"]}"><h1>${content[currentTab]["heading"]}</h1><p>${content[currentTab]["text"]}</p>`)
+      ScrollReveal().sync();
+    })
   </script>
 </body>
 

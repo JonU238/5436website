@@ -16,15 +16,36 @@
   <link href="css/global.css" rel="stylesheet" type="text/css">
 
   <style>
-    /*TO SHOW WHICH PAGE YOU'RE ON*/
-    #home
-    {
+    /* special nav css */
+    nav.unscrolled {
+      background: none;
+      box-shadow: none;
+    }
+    nav.unscrolled #menu {
+      background-image: url('images/menuwhite.png')
+    }
+    nav.unscrolled .bar {
+      border-radius: 15px;
+      transition: all 0.5s;
+    }
+    nav.unscrolled .bar:hover {
+      background: white;
+      padding: 15px 0px;
+    }
+    nav.unscrolled .bar:hover a {
       color: #b71b1b;
     }
+    nav.unscrolled .dropdown button, nav.unscrolled .bar a {
+      color: white;
+    }
     /* Body CSS */
+    #container {
+      height: 100vh;
+    }
     #hero {
       width: 100%;
-      height: calc(100vh - 60px);
+      height: calc(100vh + 60px);
+      background: #b71b1b;
       background-image: url('images/Hero.JPG');
       background-repeat: no-repeat;
       background-attachment: fixed;
@@ -32,19 +53,25 @@
       background-size: cover;
       display: flex;
       justify-content: center;
+      align-items: center;
       flex-direction: column;
       padding: 10%;
-      box-sizing: border-box;
       color: white;
+      position: absolute;
+      top: 0px;
+      text-align: center;
+      clip-path: polygon(100% 0, 100% 100%, 0% calc(100% - 60px), 0 0);
+      -webkit-clip-path: polygon(100% 0, 100% 100%, 0% calc(100% - 60px), 0 0);
     }
     #hero::before {
       content: "";
       position: absolute;
       left: 0;
       width: 100%;
-      height: calc(100vh - 60px);
-      background-color: #b71b1b;
-      opacity: 0.6;
+      height: calc(100vh + 60px);
+      background-color: #42378f;
+      background-image: linear-gradient(315deg, #42378f 0%, #f53844 74%);
+      opacity: 0.65;
     }
     #hero h1 {
       font-size: 60px;
@@ -61,55 +88,111 @@
       font-size: 20px;
     }
     #preview {
-      padding: 3%;
-      box-sizing: border-box;
+      padding: 2%;
       text-align: center;
       height: calc(100vh - 60px);
       display: flex;
-      margin-top: 20px;
+      background: white
+    }
+    .wrapper {
+      width: 33.33%;
+      height: 100%;
+      padding: 1%;
+      display: inline-block;
     }
     .third {
-      width: 29.33%;
+      width: 100%;
       height: 100%;
-      margin: 0 2% 0 2%;
-      display: inline-block;
-      vertical-align: top;
-      cursor: pointer;
+      display: block;
       text-decoration: none;
       color: black;
       background: white;
       box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
       border-radius: 15px;
+      transition: all 0.5s;
     }
     .third:hover {
       box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.3);
+    }
+    .third img {
+      width: 100%;
+      height: 50%;
+      object-fit: cover;
+      border-radius: 15px 15px 0 0;
+    }
+    .text {
+      height: 50%;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10%;
     }
     .text h3 {
       font-size: 3vw;
       font-weight: bold;
       text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
     }
-    .third p {
+    .text p {
       line-height: 1.5
     }
-    .third img {
-      width: 100%;
-      height: 60%;
-      object-fit: cover;
-      border-radius: 0 0 15px 15px;
-    }
-    .third:nth-child(2) img {
-      border-radius: 15px 15px 0 0;
-    }
-    .text {
-      height: 40%;
+    .button {
+      border: none;
+      font-size: inherit;
+      margin-top: 15px;
+      display: inline-block;
+      width: 150px;
+      color: #b71b1b;
+      padding: 15px;
+      border-radius: 50px;
+      text-decoration: none;
+      border: 2px solid #b71b1b;
+      transition: all 0.5s;
       text-align: center;
+    }
+    .button:hover {
+      background: #b71b1b;
+      color: white;
+    }
+    .current {
+      height: calc(100vh - 60px);
       display: flex;
-      flex-direction: column;
       justify-content: center;
-      padding: 10%;
-      box-sizing: border-box;
+      align-items: center;
+    }
+    .right {
+      background: white;
+    }
+    .right div {
+      text-align: left;
+      padding-left: 4%;
+    }
+    .left {
+      background: rgba(0,0,0,0.05);
+    }
+    .left div {
+      text-align: right;
+      padding-right: 4%;
+    }
+    .current img {
+      width: 70%;
+      height: 75%;
+      object-fit: cover;
+    }
+    .left img {
+      clip-path: polygon(100% 0, 90% 100%, 0 100%, 0 0);
+      -webkit-clip-path: polygon(100% 0, 90% 100%, 0 100%, 0 0);
+    }
+    .right img {
+      clip-path: polygon(100% 0, 100% 100%, 10% 100%, 0 0);
+      -webkit-clip-path: polygon(100% 0, 100% 100%, 10% 100%, 0 0);
+    }
+    .current h3 {
+      font-size: 3vw;
+      line-height: 1.25;
+      font-weight: bold;
     }
   </style>
 
@@ -117,18 +200,18 @@
 
 <body>
   <!--NAVBAR HTML-->
-  <nav>
-    <a href="index.html"><img src="images/logo.png" id="logo"></a>
+  <nav class="unscrolled">
+    <a href="index.html"><img src="images/logowhite.png" id="logo"></a>
 
     <div class="bar">
-      <a id="home" href="index.html">Home</a>
+      <a id="home" class="currentPage" href="index.html">Home</a>
     </div>
 
     <!--THESE ARE DROPDOWNS-->
     <div class="dropdown">
       <button id="about">About The Team</button>
       <div class="list">
-        <a id="history" href="history.html">History</a>
+        <a id="history" href="history.html">Past Seasons</a>
         <a id="members" href="members.html">Members</a>
       </div>
     </div>
@@ -146,6 +229,7 @@
       <div class="list">
         <a id="fundraising" href="fundraising.html">Fundraising</a>
         <a id="volunteering" href="volunteering.html">Volunteering</a>
+        <a id="volunteering" href="collaborations.html">Collaborations</a>
       </div>
     </div>
     <!--END OF DROPDOWNS-->
@@ -158,39 +242,63 @@
 
   </nav>
   <!--END OF NAVBAR HTML-->
-  <div>
+  <div id="container">
     <div id="hero">
       <h1>This is FTC Team 5436, the Aluminum Cobblers.</h1>
-      <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h2>
+      <h2>The Aluminum Cobblers give our members bigger shoes they need so that they can make their footprint on the world. These shoes consist of engineering skills and technical know-how, leadership skills, connections into the local and international community, and life long friends.</h2>
     </div>
   </div>
-
   <div id="preview">
-    <a href="members.html" class="third">
-      <div class="text">
-        <h3>Meet the Team</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    <div class="wrapper">
+      <div class="third">
+        <img src="images/iceskating.JPG"/>
+        <div class="text">
+          <h3>Meet the Team</h3>
+          <p>Every member of our 18-strong team contributes to our successes. Learn how we organize our team and meet the Aluminum Cobblers family.</p>
+          <a href="members.html" class="button">See more</a>
+        </div>
       </div>
-      <img src="images/iceskating.JPG"/>
-    </a>
-    <a href="mark.html" class="third">
-      <img src="images/mark6.JPG"/>
-      <div class="text">
-        <h3>The Robot</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+    <div class="wrapper">
+      <div class="third">
+        <img src="images/mark6.JPG"/>
+        <div class="text">
+          <h3>The Robot</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <a href="mark.html" class="button">See more</a>
+        </div>
       </div>
-    </a>
-    <a href="volunteering.html" class="third">
-      <div class="text">
-        <h3>Volunteering</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+    <div class="wrapper">
+      <div class="third">
+        <img src="images/p1.JPG"/>
+        <div class="text">
+          <h3>Volunteering</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <a href="volunteering.html" class="button">See more</a>
+        </div>
       </div>
-      <img src="images/p1.JPG"/>
-    </a>
+    </div>
+  </div>
+  <div class="current left">
+    <img src="images/Hero.JPG" href="Coronavirus"/>
+    <div>
+      <h3>Learn how we're helping out our community during the COVID-19 epidemic.</h3>
+      <a class="button" href="volunteering.html#coronaEfforts">See more</a>
+    </div>
+  </div>
+  <div class="current right">
+    <div>
+      <h3>Section Title Goes Here</h3>
+      <a class="button">See more</a>
+    </div>
+    <img src="images/Hero.JPG" href="Coronavirus"/>
   </div>
 
   <footer>
+    <div class="wave"></div>
     <div id="sponsors">
+      <p>Special thanks to our wonderful sponsors</p>
       <a href="https://cognex.com"target="_blank"><img src="images/cognex.png" alt="Cognex logo"></a>
       <a href="https://krispykreme.com"target="_blank"><img src="images/krispykreme.png" alt="Krispy Kreme logo"></a>
       <a href="https://mathworks.com" target="_blank"><img src="images/mathworks.png" alt="MathWorks logo"/></a>
@@ -201,7 +309,7 @@
     <div id="info">
       <div class="footerlink">
         <span>About the Team</span>
-        <a href="history.html">History</a>
+        <a href="history.html">Past Seasons</a>
         <a href="members.html">Members</a>
         <a href="gallery.html">Gallery</a>
       </div>
@@ -214,6 +322,7 @@
         <span>Outreach</span>
         <a href="fundraising.html">Fundraising</a>
         <a href="volunteering.html">Volunteering</a>
+        <a href="collaborations.html">Collaborations</a>
       </div>
     </div>
     <div id="connect">
@@ -240,22 +349,53 @@
     ScrollReveal({
       opacity: 0,
       duration: 1000,
-      distance: "50px",
-      afterReveal: function(el) {
-        el.style.transition = "all 0.5s"
-      }
+      distance: "50px"
     })
-    ScrollReveal().reveal(".third:nth-child(1)", {
+    ScrollReveal().reveal(".wrapper:nth-child(1)", {
       delay: 100,
       origin: "top"
     })
-    ScrollReveal().reveal(".third:nth-child(3)", {
+    ScrollReveal().reveal(".wrapper:nth-child(3)", {
       delay: 900,
       origin: "top"
     })
-    ScrollReveal().reveal(".third:nth-child(2)", {
+    ScrollReveal().reveal(".wrapper:nth-child(2)", {
       delay: 500,
       origin: "bottom"
+    })
+    ScrollReveal().reveal(".left img", {
+      origin: "left"
+    })
+    ScrollReveal().reveal(".left div", {
+      delay: 500
+    })
+    ScrollReveal().reveal(".right img", {
+      origin: "right"
+    })
+    ScrollReveal().reveal(".right div", {
+      delay: 500
+    })
+    //changing styles with scroll
+    $(window).scroll(function() {
+      if ($(this).scrollTop() >= 60) {
+        $("nav").removeClass("unscrolled")
+        $("#logo").attr("src", "images/logo.png")
+      } else {
+        $("nav").addClass("unscrolled");
+        $("#logo").attr("src", "images/logowhite.png")
+      }
+    })
+    //styling corrections w/ responsive layout
+    $("#menu").click(function() {
+      if ($(window).scrollTop() <= 60) {
+        if ($("nav").hasClass("unscrolled")) {
+          $("nav").removeClass("unscrolled")
+          $("#logo").attr("src", "images/logo.png")
+        } else {
+          $("nav").addClass("unscrolled")
+          $("#logo").attr("src", "images/logowhite.png")
+        }
+      }
     })
   </script>
 </body>

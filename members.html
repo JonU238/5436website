@@ -15,22 +15,13 @@
   <!-- Styling for the entire site -->
   <link href="css/global.css" rel="stylesheet" type="text/css">
 
-  <style>
-    /*TO SHOW WHICH PAGE YOUR ON*/
-    #about
-    {
-      color: #b71b1b;
-    }
+  <script src="js/scrollreveal.js"></script>
 
-    #members
-    {
-      color: #b71b1b;
-    }
+  <style>
     /* body */
     #container {
       text-align: center;
       padding: 10% 10% 0 10%;
-      box-sizing: border-box;
       line-height: 1.5;
       animation: fadeIn 1s;
     }
@@ -50,13 +41,9 @@
       text-align: center;
       transition: all 0.5s;
       padding: 10px 20px 10px 20px;
-      box-sizing: border-box;
       margin: 5% 10px 5% 10px;
       font-size: 25px;
       animation: fadeIn 1s;
-      animation-delay: 0.5s;
-      animation-fill-mode: forwards;
-      opacity: 0;
     }
     .tab:hover {
       color: #b71b1b;
@@ -72,7 +59,6 @@
       text-align: center;
       padding-left: 5%;
       padding-right: 5%;
-      box-sizing: border-box;
       margin-bottom: 20px;
     }
     .card {
@@ -81,7 +67,6 @@
       border-radius: 25px;
       display: inline-block;
       padding: 30px;
-      box-sizing: border-box;
       box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
       text-align: left;
       margin-bottom: 20px;
@@ -136,10 +121,10 @@
 
     <!--THESE ARE DROPDOWNS-->
     <div class="dropdown">
-      <button id="about">About The Team</button>
+      <button id="about" class="currentPage">About The Team</button>
       <div class="list">
-        <a id="history" href="history.html">History</a>
-        <a id="members" href="members.html">Members</a>
+        <a id="history" href="history.html">Past Seasons</a>
+        <a id="members" class="currentPage" href="members.html">Members</a>
       </div>
     </div>
 
@@ -156,6 +141,7 @@
       <div class="list">
         <a id="fundraising" href="fundraising.html">Fundraising</a>
         <a id="volunteering" href="volunteering.html">Volunteering</a>
+        <a id="collaborations" href="collaborations.html">Collaborations</a>
       </div>
     </div>
     <!--END OF DROPDOWNS-->
@@ -180,7 +166,9 @@
   </div>
 
   <footer>
+    <div class="wave"></div>
     <div id="sponsors">
+      <p>Special thanks to our wonderful sponsors</p>
       <a href="https://cognex.com"target="_blank"><img src="images/cognex.png" alt="Cognex logo"></a>
       <a href="https://krispykreme.com"target="_blank"><img src="images/krispykreme.png" alt="Krispy Kreme logo"></a>
       <a href="https://mathworks.com" target="_blank"><img src="images/mathworks.png" alt="MathWorks logo"/></a>
@@ -191,7 +179,7 @@
     <div id="info">
       <div class="footerlink">
         <span>About the Team</span>
-        <a href="history.html">History</a>
+        <a href="history.html">Past Seasons</a>
         <a href="members.html">Members</a>
         <a href="gallery.html">Gallery</a>
       </div>
@@ -204,6 +192,7 @@
         <span>Outreach</span>
         <a href="fundraising.html">Fundraising</a>
         <a href="volunteering.html">Volunteering</a>
+        <a href="collaborations.html">Collaborations</a>
       </div>
     </div>
     <div id="connect">
@@ -224,7 +213,6 @@
     <p id="us">Copyright &copy; 2020 RoboNatick 5436 Aluminum Cobblers<br/>Natick High School | 15 West Street | Natick, Massachusetts 01760</p>
   </footer>
   <script src="js/jquery-3.4.1.min.js"></script>
-  <script src="js/scrollreveal.js"></script>
   <script src="js/global.js"></script>
   <script>
   //team bio information
@@ -236,7 +224,7 @@
       "image": "james.png"
     },
     {
-      "name": "Zachary Eigenmann",
+      "name": "Zack Eigenmann",
       "description": "Hi, I am Zack Eigenmann and I'm the Communications leader for Team 5436. I am currently a junior at Natick High and am in my second year as a member of the team. I work with James to connect to the community and work with the notebook. I have always loved building things and working with my hands, especially when engineering is involved. While I work with things not involving the robot, I still love building and continue to work on the robot as a sudo member of the Build team.",
       "image": "zach.png"
     },
@@ -257,7 +245,7 @@
       "image": "david.png"
     },
     {
-      "name": "Joshua Connolly",
+      "name": "Josh Connolly",
       "description": "My name is Josh Connolly, I am a freshman in highschool, and this is my first year in robotics. I joined because it was an interesting concept to me due to my interest in technology and how I like to wood work if I can. I tend to only go on Thursdays and occasionally Wednesdays. But I got to GSA(Gender-Sexuality Alliance) on Tuesdays and dnd on Wednesdays.",
       "image": "josh.png"
     },
@@ -331,13 +319,8 @@
   })
 
   //scroll animation
-  ScrollReveal().reveal("#people", {
-    distance: "-50px",
-    duration: 1000,
-    easing: "ease",
-    delay: 500
-  });
   ScrollReveal().reveal(".card", {
+    opacity: 0,
     distance: "-50px",
     easing: "ease",
     duration: 1000
