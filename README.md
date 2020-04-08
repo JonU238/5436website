@@ -6,7 +6,7 @@ Im working on making it do it from atom so yea.
 ## To clone/make a copy of this repository
 1. Open the GitHub tab by clicking on the GitHub icon on the bottom right
 2. Click "Clone an existing GitHub repository"
-3. In "Clone from," paste in `https://github.com/JonU238/5436website.git`
+3. In "Clone from," paste in `https://github.com/a-strange-octopus/5436website.git`
 4. Click the Login button to log into GitHub and follow whatever it tells you to do
 
 ## To commit all your changes to GitHub at once
