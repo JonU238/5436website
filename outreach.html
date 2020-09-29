@@ -27,7 +27,7 @@
       width: 230px;
       display: inline-block;
       vertical-align: top;
-      padding: 2%;
+      padding: 1%;
       position: sticky;
       top: 60px;
     }
@@ -47,16 +47,10 @@
     h2
     {
       font-weight: bold;
-      display: inline-block;
-      border-radius: 25px;
       text-align: center;
-      transition: all 0.5s;
-      margin: 10px 0 10px 0;
-      padding: 10px 0px 10px 0px;
       font-size: 28px;
-      display: block;
-      color: black;
       text-decoration: none;
+      margin: 25px 0 10px 0;
     }
     .tab small {
       font-size: 12px;
@@ -136,9 +130,7 @@
       <button id="outreach" class="currentPage">Outreach</button>
       <div class="list">
         <a id="fundraising" href="fundraising.html">Fundraising</a>
-        <a id="volunteering" href="volunteering.html">Volunteering</a>
-        <a id="collaborations" href="collaborations.html">Collaborations</a>
-        <a id="volunteering" class="currentClass" href="outreach.html">Volunteering/<br>Collaborations</a>
+        <a id="volunteering" href="outreach.html">Volunteering & Collaborations</a>
       </div>
     </div>
     <!--END OF DROPDOWNS-->
@@ -154,11 +146,11 @@
   <div id="timeline">
     <div id="tabs">
       <h2>Volunteering</h2>
-      <a class="tab active" id="skystone" href="#">First Lego League<br/><small>Volunteering</small></a>
-      <a class="tab" id="rover" href="#">COVID-19 Efforts<br/><small>Volunteering</small></a>
+      <a class="tab active" id="fll" href="#">First Lego League</a>
+      <a class="tab" id="covid" href="#">COVID-19 Efforts</a>
       <h2>Collaborations</h2>
-      <a class="tab" id="relic" href="#">Brazilian Team<br/><small>Collaborations</small></a>
-      <a class="tab" id="velocity" href="#">International Science Weak<br/><small>Collaborations</small></a>
+      <a class="tab" id="brazil" href="#">Brazilian Team</a>
+      <a class="tab" id="science" href="#">International Science Weak</a>
     </div><!--
   --><div id="content"></div> <!-- where the text goes -->
   </div>
@@ -187,8 +179,7 @@
       <div class="footerlink">
         <span>Outreach</span>
         <a href="fundraising.html">Fundraising</a>
-        <a href="volunteering.html">Volunteering</a>
-        <a href="collaborations.html">Collaborations</a>
+        <a href="outreach.html">Volunteering &<br/>Collaborations</a>
       </div>
     </div>
     <div id="connect">
@@ -212,28 +203,28 @@
   <script src="js/global.js"></script>
   <script>
     let content = {
-      "skystone": {
+      "fll": {
         "image": "images/Hero.JPG",
         "heading": "First Lego League",
         "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
       },
-      "rover": {
+      "covid": {
         "image": "images/Hero.JPG",
         "heading": "COVID-19 Efforts",
         "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
       },
-      "relic": {
+      "brazil": {
         "image": "images/Hero.JPG",
         "heading": "Brazilian Team",
         "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
       },
-      "velocity": {
+      "science": {
         "image": "images/Hero.JPG",
         "heading": "International Science Week",
         "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
       }
     }
-    var currentTab = "skystone"; //keeps track of current tab
+    var currentTab = "fll"; //keeps track of current tab
 
     //loads default content
     $("#content").append(`<img src="${content[currentTab]["image"]}" alt="${content[currentTab]["heading"]}"><h1>${content[currentTab]["heading"]}</h1><p>${content[currentTab]["text"]}</p>`)

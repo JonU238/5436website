@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,800&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,800&display=swap');
 html {
-  font-family: nunito sans; /* Default font*/
+  font-family: nunito sans, arial; /* Default font*/
   scroll-behavior: smooth !important; /* for <a> tags */
   overflow-x: hidden; /* hides overflow content */
 }

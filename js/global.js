@@ -5,4 +5,4 @@ $("#menu").click(function() {
     $("nav, html").addClass("responsive")
   }
 })
-$("html").append("<a id='corona' href='volunteering.html#coronaEfforts'>COVID-19 Efforts</a>")
+$("html").append("<a id='corona' href='#'>Important Text For Future Use</a>")
