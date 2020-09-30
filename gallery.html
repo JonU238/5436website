@@ -100,69 +100,13 @@
       color: white;
       box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.4);
     }
-    #smallgallery {
+    .smallgallery {
       width: calc(100% - 230px);
-      display: inline-block;
-    }
-    #smallgallery div {
-      width: calc(100%/3);
-      height: calc((100vh - 60px)/3);
-      display: inline-block;
-      padding: 1%;
-    }
-    #smallgallery img {
-      height: 100%;
-      width: 100%;
-      cursor: pointer;
-      border-radius: 15px;
-      object-fit: cover;
-      backface-visibility: hidden; /* transition cohesion */
-      transition: all 0.5s;
-    }
-    #smallgallery a {
-      width: 100%;
-      height: 100%;
-      display: block;
-      overflow: hidden;
-      border-radius: 15px;
-      box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
-      transition: all 0.5s;
-      will-change: transform; /* to fix the safari bug */
-    }
-    #smallgallery img:hover {
-      transform: scale(1.1);
-    }
-    #smallgallery a:hover {
-      box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.3);
-    }
-    /* enlarged image */
-    #backdrop {
-      height: 100vh;
-      width: 100vw;
-      position: fixed;
-      top: 0px;
-      left: 0px;
-      z-index: 1;
-      text-align: center;
       display: none;
-      background-color: rgba(0,0,0,0.75);
+      height: calc(100vh - 50px);
     }
-    #x {
-      position: fixed;
-      top: 50px;
-      right: 50px;
-      color: white;
-      font-size: 30px;
-      z-index: 5;
-      cursor: pointer;
-      display: none;
-    }
-    #zoom {
-      margin: 80px;
-      width: calc(100vw - 160px);
-      height: calc(100vh - 160px);
-      object-fit: scale-down;
-      animation: fadeIn 0.5s;
+    .smallgallery.active {
+      display: inline-block;
     }
     /* animations */
     @keyframes fadeInBot {
@@ -238,10 +182,6 @@
 
   </nav>
   <!--END OF NAVBAR HTML-->
-  <div id="backdrop">
-    <span id="x">X</span>
-    <img id="zoom"></div>
-  </div>
   <div id="container">
     <div id="photogallery">
       <img class="big" id="bottom" alt="Picture of our team"/>
@@ -260,7 +200,7 @@
       <a class="tab" id="bonding" href="#second">Team Bonding</a>
       <a class="tab" id="competitions" href="#second">Competitions</a>
     </div><!--
-  --><div id="smallgallery"></div> <!-- where the small images go -->
+  --><iframe id="building-img" class="smallgallery active" src="https://drive.google.com/embeddedfolderview?id=1Yk6YA6RxZuWzgdDDs-POTptkDMBG3tpl#grid" frameborder="0"></iframe><iframe id="outreaching-img" class="smallgallery" src="https://drive.google.com/embeddedfolderview?id=1mSRu7dujt-VHXHopT01laObgriESJiCw#grid" frameborder="0"></iframe><iframe id="bonding-img" class="smallgallery" src="https://drive.google.com/embeddedfolderview?id=1ko5fqaPZbjdkIdSoXm-O-Jm65I5rSOxl#grid" frameborder="0"></iframe><iframe id="competitions-img" class="smallgallery" src="https://drive.google.com/embeddedfolderview?id=1-iSTfPBN4sEHZqdrPAVTxuJATO8t0czx#grid" frameborder="0"></iframe>
   </div>
   <footer>
     <div id="sponsors">
@@ -350,51 +290,14 @@
     //executes function every 5 seconds
     let galleryChanges = setInterval(changeImage, 5000);
 
-    //small gallery
-    var smallgallery = {
-      "building": ["mark6.JPG"],
-      "outreaching": ["p1.JPG"],
-      "bonding": ["iceskating.JPG"],
-      "competitions": ["Hero.JPG", "p2.JPG"]
-    }
-
-    //adds pictures
-    smallgallery["building"].forEach(img => {
-      $("#smallgallery").append(`<div><a><img src="images/${img}"/></a></div>`);
-    })
-
-    //scrolling
-    ScrollReveal().reveal("#smallgallery div", {
-      opacity: 0,
-      scale: 0.9
-    })
-
     var currentTab = "building"; //keeps track of current tab
 
     //tab styling, changing images based on tab clicked, animation
     $(".tab").click(function() {
-      $("#smallgallery").empty();
-      $("#" + currentTab).removeClass("active");
-      currentTab = this.id;
+      $(`#${currentTab}, #${currentTab}-img`).removeClass("active")
+      currentTab = this.id
       $(this).addClass("active");
-      smallgallery[currentTab].forEach(img => {
-        $("#smallgallery").append(`<div><a><img src="images/${img}"/></a></div>`);
-      })
-
-      ScrollReveal().sync();
-    })
-
-    //modal window
-    $("#smallgallery").on("click", "img", function() {
-      $("html").css("overflow", "hidden");
-      $("#zoom").attr("src", $(this).attr("src"));
-      $("#backdrop").css("display", "block");
-      $("#x").css("display", "block");
-    })
-    $("#x").click(function() {
-      $("html").css("overflow", "initial");
-      $("#backdrop").css("display", "none");
-      $("#x").css("display", "none");
+      $(`#${currentTab}-img`).addClass("active")
     })
   </script>
 </body>
