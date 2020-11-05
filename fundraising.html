@@ -19,9 +19,6 @@
 
   <style>
     /* Body CSS */
-    html.sr .container { /* Prevents animation flickering */
-      visibility: hidden;
-    }
     .container {
       height: calc(100vh - 60px);
       display: inline-flex;
@@ -49,6 +46,91 @@
       font-weight: bold;
       font-size: 40px;
       margin-bottom: 30px;
+    }
+    #grid {
+      padding: 1%;
+      width: 100%;
+      display: block;
+    }
+    .row {
+      height: 33.33%;
+      width: 100%;
+      display: flex;
+    }
+    .square {
+      width: 25%;
+      height: 100%;
+      padding: 0.5vw;
+      display: inline-block;
+      animation: scale 0.5s;
+      transition: 1s all;
+    }
+    .wrap {
+      display: inline-flex;
+      box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
+      width: 100%;
+      height: 100%;
+      padding: 5%;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.25s all;
+    }
+    .wrap:hover {
+      background: #b71b1b;
+      box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.4);
+    }
+    .wrap img {
+      max-width: 100%;
+      align-self: center;
+    }
+    .info {
+      width: 50%;
+      height: 200%;
+      position: relative;
+      margin-right: -50%;
+      padding: 0.5vw;
+      display: inline-block;
+      animation: fade 0.5s;
+      z-index: 1;
+    }
+    .infocontent {
+      box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
+      height: 100%;
+      padding: 5%;
+      background: #222;
+      border-radius: 5px;
+      color: white;
+      overflow-y: auto;
+    }
+    .infotext {
+      word-wrap: wrap;
+    }
+    .xrow {
+      text-align: right;
+      margin-bottom: 1.5em;
+      line-height: 0;
+    }
+    .x {
+      font-size: 1.5em;
+      cursor: pointer;
+    }
+    @keyframes scale {
+       0% {
+          opacity: 0;
+          transform: scale(0.85);
+       }
+       100% {
+          opacity: 1;
+          transform: scale(1);
+       }
+    }
+    @keyframes fade {
+       0% {
+          opacity: 0;
+       }
+       100% {
+          opacity: 1;
+       }
     }
   </style>
 
@@ -97,12 +179,73 @@
 
   </nav>
   <!--END OF NAVBAR HTML-->
-  <div class="container left">
-    <img src="images/Hero.JPG" class="image" alt="picture"/>
-  </div><!--
-  --><div class="container right">
-    <h1>Sponsorships</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <div id="grid" class="container">
+    <div class="row">
+      <div class="square" id="1-1">
+        <div class="wrap" id="cognex">
+          <img src="images/cognex.png" alt="Cognex logo">
+        </div>
+      </div>
+      <div class="square" id="1-2">
+        <div class="wrap" id="krispy">
+          <img src="images/krispykreme.png" alt="Krispy Kreme logo">
+        </div>
+      </div>
+      <div class="square" id="1-3">
+        <div class="wrap" id="mathworks">
+          <img src="images/mathworks.png" alt="MathWorks logo">
+        </div>
+      </div>
+      <div class="square" id="1-4">
+        <div class="wrap" id="nest">
+          <img src="images/nest.png" alt="New England Sci-Tech logo">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="square" id="2-1">
+        <div class="wrap" id="sharporange">
+          <img src="images/sharporange.png" alt="SharpOrange logo">
+        </div>
+      </div>
+      <div class="square" id="2-2">
+        <div class="wrap" id="youdoit">
+          <img src="images/youdoitelectronics.png" alt="You-do-it Electronics logo">
+        </div>
+      </div>
+      <div class="square" id="2-3">
+        <div class="wrap" id="placeholder1">
+          <img src="" alt="Sponsor">
+        </div>
+      </div>
+      <div class="square" id="2-4">
+        <div class="wrap" id="placeholder2">
+          <img src="" alt="Sponsor">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="square" id="3-1">
+        <div class="wrap" id="placeholder3">
+          <img src="" alt="Sponsor">
+        </div>
+      </div>
+      <div class="square" id="3-2">
+        <div class="wrap" id="placeholder4">
+          <img src="" alt="Sponsor">
+        </div>
+      </div>
+      <div class="square" id="3-3">
+        <div class="wrap" id="placeholder5">
+          <img src="" alt="Sponsor">
+        </div>
+      </div>
+      <div class="square" id="3-4">
+        <div class="wrap" id="placeholder6">
+          <img src="" alt="Sponsor">
+        </div>
+      </div>
+    </div>
   </div>
   <div class="container left">
     <h1>Krispy Kreme Sales</h1>
@@ -166,6 +309,60 @@
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/global.js"></script>
   <script>
+    var text = {
+      cognex: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      krispy: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      mathworks: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      nest: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      sharporange: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      youdoit: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      placeholder1: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      placeholder2: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      placeholder3: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      placeholder4: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      placeholder5: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      placeholder6: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    }
+    var hidden;
+    $(".wrap").click(function() {
+      if (hidden) {
+        $(".info").remove()
+        $(hidden).css({
+          opacity: 1,
+          visibility: "visible"
+        })
+      }
+      let id = $(this).parents(".square").attr("id")
+      let name = $(this).attr("id")
+
+      let row = parseInt(id.substring(0,1))
+      let col = parseInt(id.slice(2,3))
+      let rnext = 1
+      let cnext = 1
+      let rstart = row
+      let cstart = col
+      if (row == 3) {
+        rnext = -1
+        rstart -= 1
+      }
+      if (col == 4) {
+        cnext = -1
+        cstart -= 1
+      }
+      hidden = `#${id}, #${row}-${col + cnext}, #${row + rnext}-${col}, #${row + rnext}-${col + cnext}`
+      $(hidden).css({
+        opacity: 0,
+        visibility: "hidden"
+      })
+      $(`#${rstart}-${cstart}`).before(`<div class='info'><div class='infocontent'><div class='xrow'><span class='x'>x</span></div><div class='infotext'>${text[name]}</div></div></div>`)
+    })
+    $("#grid").on("click", ".x", function() {
+      $(".info").remove()
+      $(hidden).css({
+        opacity: 1,
+        visibility: "visible"
+      })
+    })
     ScrollReveal().reveal(".right", {
       opacity: 0,
       distance: "-50px",
