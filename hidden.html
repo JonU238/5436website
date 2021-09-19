@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Team 5436 | RoboNatick</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png">
+
+  <!--ADDS RESET.CSS-->
+  <link href="css/reset.css" rel="stylesheet" type="text/css">
+
+  <!-- Styling for the entire site -->
+  <link href="css/global.css" rel="stylesheet" type="text/css">
+
+  <style>
+    /* special nav css */
+    nav.unscrolled {
+      background: none;
+      box-shadow: none;
+    }
+    nav.unscrolled #menu {
+      background-image: url('images/menuwhite.png')
+    }
+    nav.unscrolled .bar {
+      border-radius: 15px;
+      transition: all 0.5s;
+    }
+    nav.unscrolled .bar:hover {
+      background: white;
+      padding: 15px 0px;
+    }
+    nav.unscrolled .bar:hover a {
+      color: #b71b1b;
+    }
+    nav.unscrolled .dropdown button, nav.unscrolled .bar a {
+      color: white;
+    }
+    /* Body CSS */
+    #container {
+      height: calc(100vh - 60px);
+    }
+    #hero {
+      width: 100%;
+      height: 100vh;
+      background: #b71b1b;
+      background-image: url('images/Hero.JPG');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 10%;
+      color: white;
+      position: absolute;
+      top: 0px;
+      text-align: center;
+    }
+    #hero::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background-color: #42378f;
+      background-image: linear-gradient(315deg, #42378f 0%, #f53844 74%);
+      opacity: 0.65;
+    }
+    #hero h1 {
+      font-size: 60px;
+      font-weight: bold;
+      line-height: 1.25;
+      position: relative;
+      margin-bottom: 30px;
+      animation: fadeIn 1s;
+    }
+    #hero h2 {
+      position: relative;
+      line-height: 1.5;
+      animation: fadeIn 1.5s;
+      font-size: 20px;
+    }
+    #preview {
+      padding: 2%;
+      text-align: center;
+      height: calc(100vh - 60px);
+      display: flex;
+      background: white
+    }
+    .wrapper {
+      width: 33.33%;
+      height: 100%;
+      padding: 1%;
+      display: inline-block;
+    }
+    .third {
+      width: 100%;
+      height: 100%;
+      display: block;
+      text-decoration: none;
+      color: black;
+      background: white;
+      box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+      border-radius: 15px;
+      transition: all 0.5s;
+    }
+    .third:hover {
+      box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.3);
+    }
+    .third img {
+      width: 100%;
+      height: 50%;
+      object-fit: cover;
+      border-radius: 15px 15px 0 0;
+    }
+    .text {
+      height: 50%;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10%;
+    }
+    .text h3 {
+      font-size: 3vw;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .text p {
+      line-height: 1.5
+    }
+    .button {
+      border: none;
+      font-size: inherit;
+      margin-top: 15px;
+      display: inline-block;
+      width: 150px;
+      color: #b71b1b;
+      padding: 15px;
+      border-radius: 50px;
+      text-decoration: none;
+      border: 2px solid #b71b1b;
+      transition: all 0.5s;
+      text-align: center;
+    }
+    .button:hover {
+      background: #b71b1b;
+      color: white;
+    }
+    .current {
+      height: calc(100vh - 60px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .right {
+      background: white;
+    }
+    .right div {
+      text-align: left;
+      padding-left: 4%;
+    }
+    .left {
+      background: rgba(0,0,0,0.05);
+    }
+    .left div {
+      text-align: right;
+      padding-right: 4%;
+    }
+    .current img {
+      width: 70%;
+      height: 75%;
+      object-fit: cover;
+    }
+    .left img {
+      clip-path: polygon(100% 0, 90% 100%, 0 100%, 0 0);
+      -webkit-clip-path: polygon(100% 0, 90% 100%, 0 100%, 0 0);
+    }
+    .right img {
+      clip-path: polygon(100% 0, 100% 100%, 10% 100%, 0 0);
+      -webkit-clip-path: polygon(100% 0, 100% 100%, 10% 100%, 0 0);
+    }
+    .current h3 {
+      font-size: 3vw;
+      line-height: 1.25;
+      font-weight: bold;
+    }
+  </style>
+
+</head>
+
+<body>
+  <meta http-equiv="refresh" content="4; url='https://www.youtube.com/watch?v=dQw4w9WgXcQ'" />
+  <!--NAVBAR HTML-->
+  <nav class="unscrolled">
+    <a href="index.html"><img src="images/logowhite.png" id="logo"></a>
+
+    <div class="bar">
+      <a id="home" class="currentPage" href="index.html">Home</a>
+    </div>
+
+    <!--THESE ARE DROPDOWNS-->
+    <div class="dropdown">
+      <button id="about">About The Team</button>
+      <div class="list">
+        <a id="history" href="history.html">Past Seasons</a>
+        <a id="members" href="members.html">Members</a>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <button id="robot">The Robots</button>
+      <div class="list">
+        <a id="mark" href="mark.html">Mark 6 Robot</a>
+        <a id="past" href="past.html">Past Robots</a>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <button id="outreach">Outreach</button>
+      <div class="list">
+        <a id="fundraising" href="fundraising.html">Fundraising</a>
+        <a id="volunteering" href="outreach.html">Volunteering & Collaborations</a>
+      </div>
+    </div>
+    <!--END OF DROPDOWNS-->
+
+    <div class="bar">
+      <a id="gallery" href="gallery.html">Photo Gallery</a>
+    </div>
+
+    <div id="menu"></div>
+
+  </nav>
+  <!--END OF NAVBAR HTML-->
+  <div id="container">
+    <div id="hero">
+      <h1>This is FTC Team 5436, the Aluminum Cobblers.</h1>
+      <h2>The Aluminum Cobblers give our members bigger shoes they need so that they can make their footprint on the world. These shoes consist of engineering skills and technical know-how, leadership skills, connections into the local and international community, and life long friends.</h2>
+    </div>
+  </div>
+  <div id="preview">
+    <div class="wrapper">
+      <div class="third">
+        <img src="images/iceskating.JPG"/>
+        <div class="text">
+          <h3>Meet the Team</h3>
+          <p>Every member of our 18-strong team contributes to our successes. Learn how we organize our team and meet the Aluminum Cobblers family.</p>
+          <a href="members.html" class="button">See more</a>
+        </div>
+      </div>
+    </div>
+    <div class="wrapper">
+      <div class="third">
+        <img src="images/mark6.JPG"/>
+        <div class="text">
+          <h3>The Robot</h3>
+          <p>We are currently working on designing a new robot for the season of 2021-2022. Click here for updates on the robot.</p>
+          <a href="mark.html" class="button">See more</a>
+        </div>
+      </div>
+    </div>
+    <div class="wrapper">
+      <div class="third">
+        <img src="images/p1.JPG"/>
+        <div class="text">
+          <h3>Volunteering</h3>
+          <p>Our team works hard to inspire kids to learn/take part in the STEM community. Learn about the different events we have helped run in the past.</p>
+          <a href="outreach.html" class="button">See more</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="current left">
+    <img src="images/Hero.JPG" href="Coronavirus"/>
+    <div>
+      <h3>Learn how we're helping out our community during the COVID-19 epidemic.</h3>
+      <a class="button" href="volunteering.html#coronaEfforts">See more</a>
+    </div>
+  </div>
+  <div class="current right">
+    <div>
+      <h3>Section Title Goes Here</h3>
+      <a class="button">See more</a>
+    </div>
+    <img src="images/Hero.JPG" href="Coronavirus"/>
+  </div>
+
+  <footer>
+    <div id="sponsors">
+      <p>Special thanks to our wonderful sponsors</p>
+      <a href="https://cognex.com"target="_blank"><img src="images/cognex.png" alt="Cognex logo"></a>
+      <a href="https://krispykreme.com"target="_blank"><img src="images/krispykreme.png" alt="Krispy Kreme logo"></a>
+      <a href="https://mathworks.com" target="_blank"><img src="images/mathworks.png" alt="MathWorks logo"/></a>
+      <a href="https://www.nescitech.org"target="_blank"><img src="images/nest.png" alt="New England Sci-Tech logo"></a>
+      <a href="https://www.sharporange.com"target="_blank"><img src="images/sharporange.png" alt="SharpOrange logo"></a>
+      <a href="https://www.youdoitelectronics.com"target="_blank"><img src="images/youdoitelectronics.png" alt="You-do-it Electronics logo"></a>
+    </div>
+    <div id="info">
+      <div class="footerlink">
+        <span>About the Team</span>
+        <a href="history.html">Past Seasons</a>
+        <a href="members.html">Members</a>
+        <a href="gallery.html">Gallery</a>
+      </div>
+      <div class="footerlink">
+        <span>The Robots</span>
+        <a href="mark.html">Mark 6</a>
+        <a href="past.html">Past Robots</a>
+      </div>
+      <div class="footerlink">
+        <span>Outreach</span>
+        <a href="fundraising.html">Fundraising</a>
+        <a href="outreach.html">Volunteering &<br/>Collaborations</a>
+      </div>
+    </div>
+    <div id="connect">
+      <span>Stay in Touch</span>
+      <a href="https://www.youtube.com/channel/UCIaG40kjnclREDBDG_jpzmA" target="_blank">
+        <img src="images/youtube.png"/ alt="Subscribe to our YouTube channel">
+        <p>The Aluminum Cobblers 5436</p>
+      </a>
+      <a href="https://www.instagram.com/aluminumcobblers_5436/" target="_blank">
+        <img src="images/instagram.png"  alt="Follow our Instagram"/>
+        <p>@aluminumcobblers_5436</p>
+      </a>
+      <a href="mailto:Natick5436@gmail.com" target="_blank">
+        <img src="images/gmail.png" id="insta" alt="Contact us at Natick5436@gmail.com"/>
+        <p>Natick5436@gmail.com</p>
+      </a>
+    </div>
+    <p id="us">Copyright &copy; 2020 RoboNatick 5436 Aluminum Cobblers<br/>Natick High School | 15 West Street | Natick, Massachusetts 01760</p>
+  </footer>
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/scrollreveal.js"></script>
+  <script src="js/global.js"></script>
+  <script>
+    ScrollReveal({
+      opacity: 0,
+      duration: 1000,
+      distance: "50px"
+    })
+    ScrollReveal().reveal(".wrapper:nth-child(1)", {
+      delay: 100,
+      origin: "top"
+    })
+    ScrollReveal().reveal(".wrapper:nth-child(3)", {
+      delay: 900,
+      origin: "top"
+    })
+    ScrollReveal().reveal(".wrapper:nth-child(2)", {
+      delay: 500,
+      origin: "bottom"
+    })
+    ScrollReveal().reveal(".left img", {
+      origin: "left"
+    })
+    ScrollReveal().reveal(".left div", {
+      delay: 500
+    })
+    ScrollReveal().reveal(".right img", {
+      origin: "right"
+    })
+    ScrollReveal().reveal(".right div", {
+      delay: 500
+    })
+    //changing styles with scroll
+    $(window).scroll(function() {
+      if ($(this).scrollTop() >= 60) {
+        $("nav").removeClass("unscrolled")
+        $("#logo").attr("src", "images/logo.png")
+      } else {
+        $("nav").addClass("unscrolled");
+        $("#logo").attr("src", "images/logowhite.png")
+      }
+    })
+    //styling corrections w/ responsive layout
+    $("#menu").click(function() {
+      if ($(window).scrollTop() <= 60) {
+        if ($("nav").hasClass("unscrolled")) {
+          $("nav").removeClass("unscrolled")
+          $("#logo").attr("src", "images/logo.png")
+        } else {
+          $("nav").addClass("unscrolled")
+          $("#logo").attr("src", "images/logowhite.png")
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
