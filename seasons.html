@@ -27,7 +27,7 @@
       width: 230px;
       display: inline-block;
       vertical-align: top;
-      padding: 2%;
+      padding: 1%;
       position: sticky;
       top: 60px;
     }
@@ -42,6 +42,15 @@
       display: block;
       color: black;
       text-decoration: none;
+    }
+    /*For the volunteering and collaborations heading*/
+    h2
+    {
+      font-weight: bold;
+      text-align: center;
+      font-size: 28px;
+      text-decoration: none;
+      margin: 25px 0 10px 0;
     }
     .tab small {
       font-size: 12px;
@@ -102,9 +111,9 @@
 
     <!--THESE ARE DROPDOWNS-->
     <div class="dropdown">
-      <button id="about" class="currentPage">About The Team</button>
+      <button id="about">About The Team</button>
       <div class="list">
-        <a id="history" class="currentPage" href="history.html">Past Seasons</a>
+        <a id="history" href="seasons.html">Past Seasons</a>
         <a id="members" href="members.html">Members</a>
       </div>
     </div>
@@ -118,9 +127,9 @@
     </div>
 
     <div class="dropdown">
-      <button id="outreach">Outreach</button>
+      <button id="outreach" class="currentPage">Outreach</button>
       <div class="list">
-        <a id="fundraising" href="fundraising.html">Fundraising</a>
+        <!-- <a id="fundraising" href="fundraising.html">Fundraising</a> -->
         <a id="volunteering" href="outreach.html">Volunteering & Collaborations</a>
       </div>
     </div>
@@ -136,12 +145,13 @@
   <!--END OF NAVBAR HTML-->
   <div id="timeline">
     <div id="tabs">
-      <a class="tab active" id="ultimate" href="#">Ultimate Goal<br/><small>2020-2021</small></a>
-      <a class="tab" id="skystone" href="#">Skystone<br/><small>2019-2020</small></a>
-      <a class="tab" id="rover" href="#">Rover Ruckus<br/><small>2018-2019</small></a>
-      <a class="tab" id="relic" href="#">Relic Recovery<br/><small>2017-2018</small></a>
-      <a class="tab" id="velocity" href="#">Velocity Vortex<br/><small>2016-2017</small></a>
-      <a class="tab" id="beyond" href="#">Beyond<br/><small>≤2016</small></a>
+      <h2>Volunteering</h2>
+      <a class="tab active" id="fll" href="#">First Lego League</a>
+      <a class="tab" id="nxt" href="#">Library NXT Class</a>
+      <a class="tab" id="python" href="#">Python Class</a>
+      <h2>Collaborations</h2>
+      <a class="tab" id="brazil" href="#">Brazilian Team</a>
+      <a class="tab" id="science" href="#">International Science Weak</a>
     </div><!--
   --><div id="content"></div> <!-- where the text goes -->
   </div>
@@ -158,7 +168,7 @@
     <div id="info">
       <div class="footerlink">
         <span>About the Team</span>
-        <a href="history.html">Past Seasons</a>
+        <a href="seasons.html">Past Seasons</a>
         <a href="members.html">Members</a>
         <a href="gallery.html">Gallery</a>
       </div>
@@ -169,7 +179,7 @@
       </div>
       <div class="footerlink">
         <span>Outreach</span>
-        <a href="fundraising.html">Fundraising</a>
+        <!-- <a href="fundraising.html">Fundraising</a> -->
         <a href="outreach.html">Volunteering &<br/>Collaborations</a>
       </div>
     </div>
@@ -194,33 +204,33 @@
   <script src="js/global.js"></script>
   <script>
     let content = {
-      "ultimate": {
+      "fll": {
         "image": "images/Hero.JPG",
-        "heading": "2020-2021: Ultimate Goal",
-        "text": "In Ultimate Goal, For this year, we had to operate at New England Science Technology (NEST) due to COVID restrictions at Natick High School. We could only have eight people working on the robot at one time. Despite these obstacles, we managed to create a functioning robot for the competition. We won the Innovate Award during our qualifier."
+        "heading": "First Lego League",
+        "text": "During 2019, we volunteered for First Lego League every Friday to help kids build bottle rockets, batte bots, and NXTs among other things."
       },
-      "skystone": {
+      "nxt": {
         "image": "images/Hero.JPG",
-        "heading": "2019-2020: Skystone",
-        "text": "This year was our golden age and an example of what we will further strive to be in the future. After the last season started us with no prior experience when it came to actually building, leading, or programming outside of two people, we weren't expecting much out of that season. Mostly we wanted to learn from our mistakes and fonnal them into this year, and man did that pay off. At the start of this year we hadn't lost a single member and we were ready to get to work the second the kickoff was announced. With our new members being taught, the leadership with the teams full confidence, and the builders and programmers volunteering to work around the clock on both the robot and outreach it's no wonder that this year we got runner up to inspire, qualifying us for worlds. Unfortunately Covid went into affect one week later so worlds were canceled, but we intend to keep up the momentum."
+        "heading": "Library NXT Class",
+        "text": "In the beginning of 2020, we taught a class at the Morse Institute Library to teach middle schoolers to build robots with NXTs. Unfortunately, the class had to be cancelled due to COVID-19."
       },
-      "rover": {
+      "python": {
         "image": "images/Hero.JPG",
-        "heading": "2018-2019: Rover Ruckus",
-        "text": "This season was a turning point for the team as a whole. At the start of this year we had two people on the team that had any idea what they were doing, and a whole bunch of freshmen, and new members. All together we had to pull a lot together with not much time or knowhow to do it. However despite this we did our best, both the vets and the new people, and created the Aluminum Cobblers you see today. We ended up qualifying for states against all odds and doing quite well for a novice team at states. It was a year of great strength building."
+        "heading": "Python Class",
+        "text": "For 10 weeks, we did a weekly class teaching 10 middle-schoolers in our local district Python. Due to COVID the class was over Zoom. In the end we taught our students to create a real application."
       },
-      "relic": {
+      "brazil": {
         "image": "images/Hero.JPG",
-        "heading": "2017-2018: Relic Recovery",
-        "text": "Our relic recovery season was the last season with a lot of our old members now alumni. We competed in two qualifiers and got the \"Motivate\" award. Our team made it to the State Championship this year"
+        "heading": "Brazilian Team",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
       },
-      "velocity": {
+      "science": {
         "image": "images/Hero.JPG",
-        "heading": "2016-2017: Velocity Vortex",
-        "text": "For this season team 5436 advanced to Massachusetts state level competition before our season drew to a close. In our second of two qualifiers of the Velocity Vortex season we made it to the finals match when we lost. We thought there would not be a chance for us to advance to the state level, but we won the ‘Think’ Award and were then able to advance through to the next level of competition."
+        "heading": "International Science Week",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
       }
     }
-    var currentTab = "ultimate"; //keeps track of current tab
+    var currentTab = "fll"; //keeps track of current tab
 
     //loads default content
     $("#content").append(`<img src="${content[currentTab]["image"]}" alt="${content[currentTab]["heading"]}"><h1>${content[currentTab]["heading"]}</h1><p>${content[currentTab]["text"]}</p>`)
