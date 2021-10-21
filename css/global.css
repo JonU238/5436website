@@ -142,8 +142,8 @@ nav
   color: #b71b1b;
 }
 /*END OF NAVBAR CSS*/
-/* Corona stuff */
-#corona {
+/* important stuff */
+#important {
   position: fixed;
   bottom: 2%;
   right: 0;
@@ -156,7 +156,7 @@ nav
   text-decoration: none;
   z-index: 9999;
 }
-#corona:hover {
+#important:hover {
   box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.5);
 }
 /* Footer CSS */
