@@ -1,22 +1,16 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <title>Team 5436 | RoboNatick</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="utf-8">
-
   <!-- Favicons -->
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png">
-
   <!--ADDS RESET.CSS-->
   <link href="css/reset.css" rel="stylesheet" type="text/css">
-
   <!-- Styling for the entire site -->
   <link href="css/global.css" rel="stylesheet" type="text/css">
-
   <script src="js/scrollreveal.js"></script>
-
   <style>
     /* Body CSS */
     #timeline {
@@ -27,7 +21,7 @@
       width: 230px;
       display: inline-block;
       vertical-align: top;
-      padding: 1%;
+      padding: 2%;
       position: sticky;
       top: 60px;
     }
@@ -42,15 +36,6 @@
       display: block;
       color: black;
       text-decoration: none;
-    }
-    /*For the volunteering and collaborations heading*/
-    h2
-    {
-      font-weight: bold;
-      text-align: center;
-      font-size: 28px;
-      text-decoration: none;
-      margin: 25px 0 10px 0;
     }
     .tab small {
       font-size: 12px;
@@ -97,27 +82,22 @@
        }
     }
   </style>
-
 </head>
-
 <body>
   <!--NAVBAR HTML-->
   <nav>
     <a href="index.html"><img src="images/logo.png" id="logo"></a>
-
     <div class="bar">
       <a id="home" href="index.html">Home</a>
     </div>
-
     <!--THESE ARE DROPDOWNS-->
     <div class="dropdown">
-      <button id="about">About The Team</button>
+      <button id="about" class="currentPage">About The Team</button>
       <div class="list">
-        <a id="history" href="seasons.html">Past Seasons</a>
+        <a id="history" class="currentPage" href="seasons.html">Past Seasons</a>
         <a id="members" href="members.html">Members</a>
       </div>
     </div>
-
     <div class="dropdown">
       <button id="robot">The Robots</button>
       <div class="list">
@@ -125,33 +105,27 @@
         <a id="past" href="past.html">Past Robots</a>
       </div>
     </div>
-
     <div class="dropdown">
-      <button id="outreach" class="currentPage">Outreach</button>
+      <button id="outreach">Outreach</button>
       <div class="list">
-        <!-- <a id="fundraising" href="fundraising.html">Fundraising</a> -->
+        <a id="fundraising" href="fundraising.html">Fundraising</a>
         <a id="volunteering" href="outreach.html">Volunteering & Collaborations</a>
       </div>
     </div>
     <!--END OF DROPDOWNS-->
-
     <div class="bar">
       <a id="gallery" href="gallery.html">Photo Gallery</a>
     </div>
-
     <div id="menu"></div>
-
   </nav>
   <!--END OF NAVBAR HTML-->
   <div id="timeline">
     <div id="tabs">
-      <h2>Volunteering</h2>
-      <a class="tab active" id="fll" href="#">First Lego League</a>
-      <a class="tab" id="nxt" href="#">Library NXT Class</a>
-      <a class="tab" id="python" href="#">Python Class</a>
-      <h2>Collaborations</h2>
-      <a class="tab" id="brazil" href="#">Brazilian Team</a>
-      <a class="tab" id="science" href="#">International Science Weak</a>
+      <a class="tab active" id="skystone" href="#">Skystone<br/><small>2019-2020</small></a>
+      <a class="tab" id="rover" href="#">Rover Ruckus<br/><small>2018-2019</small></a>
+      <a class="tab" id="relic" href="#">Relic Recovery<br/><small>2017-2018</small></a>
+      <a class="tab" id="velocity" href="#">Velocity Vortex<br/><small>2016-2017</small></a>
+      <a class="tab" id="beyond" href="#">Beyond<br/><small>≤2016</small></a>
     </div><!--
   --><div id="content"></div> <!-- where the text goes -->
   </div>
@@ -168,7 +142,7 @@
     <div id="info">
       <div class="footerlink">
         <span>About the Team</span>
-        <a href="seasons.html">Past Seasons</a>
+        <a href="history.html">Past Seasons</a>
         <a href="members.html">Members</a>
         <a href="gallery.html">Gallery</a>
       </div>
@@ -179,7 +153,7 @@
       </div>
       <div class="footerlink">
         <span>Outreach</span>
-        <!-- <a href="fundraising.html">Fundraising</a> -->
+        <a href="fundraising.html">Fundraising</a>
         <a href="outreach.html">Volunteering &<br/>Collaborations</a>
       </div>
     </div>
@@ -204,37 +178,35 @@
   <script src="js/global.js"></script>
   <script>
     let content = {
-      "fll": {
+      "skystone": {
         "image": "images/Hero.JPG",
-        "heading": "First Lego League",
-        "text": "During 2019, we volunteered for First Lego League every Friday to help kids build bottle rockets, batte bots, and NXTs among other things."
-      },
-      "nxt": {
-        "image": "images/Hero.JPG",
-        "heading": "Library NXT Class",
-        "text": "In the beginning of 2020, we taught a class at the Morse Institute Library to teach middle schoolers to build robots with NXTs. Unfortunately, the class had to be cancelled due to COVID-19."
-      },
-      "python": {
-        "image": "images/Hero.JPG",
-        "heading": "Python Class",
-        "text": "For 10 weeks, we did a weekly class teaching 10 middle-schoolers in our local district Python. Due to COVID the class was over Zoom. In the end we taught our students to create a real application."
-      },
-      "brazil": {
-        "image": "images/Hero.JPG",
-        "heading": "Brazilian Team",
+        "heading": "2019-2020: Skystone",
         "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
       },
-      "science": {
+      "rover": {
         "image": "images/Hero.JPG",
-        "heading": "International Science Week",
+        "heading": "2018-2019: Rover Ruckus",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      },
+      "relic": {
+        "image": "images/Hero.JPG",
+        "heading": "2017-2018: Relic Recovery",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      },
+      "velocity": {
+        "image": "images/Hero.JPG",
+        "heading": "2016-2017: Velocity Vortex",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      },
+      "beyond": {
+        "image": "images/Hero.JPG",
+        "heading": "Beyond",
         "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
       }
     }
-    var currentTab = "fll"; //keeps track of current tab
-
+    var currentTab = "skystone"; //keeps track of current tab
     //loads default content
     $("#content").append(`<img src="${content[currentTab]["image"]}" alt="${content[currentTab]["heading"]}"><h1>${content[currentTab]["heading"]}</h1><p>${content[currentTab]["text"]}</p>`)
-
     //tab styling, changing images based on tab clicked, animation
     $(".tab").click(function() {
       $("#content").empty();
@@ -246,5 +218,4 @@
     })
   </script>
 </body>
-
 </html>
