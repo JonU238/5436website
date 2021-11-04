@@ -121,11 +121,11 @@
   <!--END OF NAVBAR HTML-->
   <div id="timeline">
     <div id="tabs">
-      <a class="tab active" id="skystone" href="#">Skystone<br/><small>2019-2020</small></a>
+      <a class="tab active" id="freight" href="#">Freight Frenzy<br/><small>2020-2021</small></a>
+      <a class="tab" id="skystone" href="#">Skystone<br/><small>2020-2021</small></a>
       <a class="tab" id="rover" href="#">Rover Ruckus<br/><small>2018-2019</small></a>
       <a class="tab" id="relic" href="#">Relic Recovery<br/><small>2017-2018</small></a>
-      <a class="tab" id="velocity" href="#">Velocity Vortex<br/><small>2016-2017</small></a>
-      <a class="tab" id="beyond" href="#">Beyond<br/><small>≤2016</small></a>
+      <a class="tab" id="beyond" href="#">Beyond<br/><small>≤2017</small></a>
     </div><!--
   --><div id="content"></div> <!-- where the text goes -->
   </div>
@@ -178,33 +178,33 @@
   <script src="js/global.js"></script>
   <script>
     let content = {
+      "freight": {
+        "image": "images/Hero.JPG",
+        "heading": "2020-2021: Freight Frenzy",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      },
       "skystone": {
         "image": "images/Hero.JPG",
         "heading": "2019-2020: Skystone",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        "text": "This year was our golden age and an example of what we will further strive to be in the future. After the last season started with no prior experience when it came to actually building, leading, or programming outside of two people, we weren't expecting much out of that season. Mostly we wanted to learn from our mistakes and fonnal them into this year, and man did that pay off. At the start of this year we hadn't lost a single member and we were ready to get to work the second the kickoff was announced. With our new members being taught, the leadership with the team's full confidence, and the builders and programmers volunteering to work around the clock on both the robot and outreach it's no wonder that this year we got runner up to inspire, qualifying us for worlds. Unfortunately Covid went into effect one week later so worlds were canceled, but we intend to keep up the momentum."
       },
       "rover": {
         "image": "images/Hero.JPG",
         "heading": "2018-2019: Rover Ruckus",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        "text": "This season was a turning point for the team as a whole. At the start of this year we had two people on the team that had any idea what they were doing, and a whole bunch of freshmen, and new members. All together we had to pull a lot together with not much time or knowhow to do it. However despite this we did our best, both the vets and the new people, and created the Aluminum Cobblers you see today. We ended up qualifying for states against all odds and doing quite well for a novice team at states. It was a year of great strength building."
       },
       "relic": {
         "image": "images/Hero.JPG",
         "heading": "2017-2018: Relic Recovery",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-      },
-      "velocity": {
-        "image": "images/Hero.JPG",
-        "heading": "2016-2017: Velocity Vortex",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        "text": "Our relic recovery season was the last season with a lot of our old members now alumni. We competed in two qualifiers and got the "Motivate" award. Our team made it to the State Championship this year."
       },
       "beyond": {
         "image": "images/Hero.JPG",
-        "heading": "Beyond",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        "heading": "2016-2017: Velocity Vortex",
+        "text": "For this season team 5436 advanced to Massachusetts state level competition before our season drew to a close. In our second of two qualifiers of the Velocity Vortex season we made it to the finals match when we lost. We thought there would not be a chance for us to advance to the state level, but we won the ‘Think’ Award and were then able to advance through to the next level of competition. "
       }
     }
-    var currentTab = "skystone"; //keeps track of current tab
+    var currentTab = "freight"; //keeps track of current tab
     //loads default content
     $("#content").append(`<img src="${content[currentTab]["image"]}" alt="${content[currentTab]["heading"]}"><h1>${content[currentTab]["heading"]}</h1><p>${content[currentTab]["text"]}</p>`)
     //tab styling, changing images based on tab clicked, animation
