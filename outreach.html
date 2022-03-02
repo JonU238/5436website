@@ -18,86 +18,7 @@
 
   <script src="js/scrollreveal.js"></script>
 
-  <style>
-    /* Body CSS */
-    #timeline {
-      padding: 20px;
-    }
-    #tabs {
-      text-align: center;
-      width: 230px;
-      display: inline-block;
-      vertical-align: top;
-      padding: 1%;
-      position: sticky;
-      top: 60px;
-    }
-    .tab {
-      display: inline-block;
-      border-radius: 25px;
-      text-align: center;
-      transition: all 0.5s;
-      padding: 15px;
-      margin: 10px 0 10px 0;
-      font-size: 20px;
-      display: block;
-      color: black;
-      text-decoration: none;
-    }
-    /*For the Outreach and collaborations heading*/
-    h2
-    {
-      font-weight: bold;
-      text-align: center;
-      font-size: 28px;
-      text-decoration: none;
-      margin: 25px 0 10px 0;
-    }
-    .tab small {
-      font-size: 12px;
-    }
-    .tab:hover {
-      color: #b71b1b;
-    }
-    .tab.active {
-      background-color: #b71b1b;
-      color: white;
-      box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.4);
-    }
-    #content {
-      width: calc(100% - 230px);
-      display: inline-block;
-      padding: 2%;
-    }
-    #content * {
-      animation: dropIn 0.5s
-    }
-    #content img {
-      width: 100%;
-      height: 50vh;
-      object-fit: cover;
-      margin-bottom: 50px;
-      border-radius: 15px;
-    }
-    #content h1 {
-      font-weight: bold;
-      font-size: 40px;
-      margin-bottom: 20px;
-    }
-    #content p {
-      line-height: 1.5
-    }
-    @keyframes dropIn {
-       0% {
-          opacity: 0;
-          transform: translateY(50px);
-       }
-       100% {
-          opacity: 1;
-          transform: translateY(0);
-       }
-    }
-  </style>
+  <link href="css/outreach.css" rel="stylesheet" type="text/css">
 
 </head>
 
@@ -131,7 +52,7 @@
       <button id="outreach" class="currentPage">Outreach</button>
       <div class="list">
         <!-- <a id="fundraising" href="fundraising.html">Fundraising</a> -->
-        <a id="Outreach" href="outreach.html">Outreach & Collaborations</a>
+        <a id="Outreach" class="currentPage" href="outreach.html">Outreach & Collaborations</a>
       </div>
     </div>
     <!--END OF DROPDOWNS-->
@@ -144,20 +65,27 @@
 
   </nav>
   <!--END OF NAVBAR HTML-->
-  <div id="timeline">
-    <div id="tabs">
-      <h2>Outreach</h2>
-      <a class="tab active" id="fair" href="#">Extracurricular Fair</a>
-      <a class="tab" id="fresh" href="#">Freshman Challenge</a>
-      <a class="tab" id="fll" href="#">First Lego League</a>
-      <a class="tab" id="nxt" href="#">Library NXT Class</a>
-      <a class="tab" id="python" href="#">Python Class</a>
-      <h2>Collaborations</h2>
-      <a class="tab" id="brazil" href="#">Brazilian Team</a>
-      <a class="tab" id="science" href="#">International Science Week</a>
-    </div><!--
-  --><div id="content"></div> <!-- where the text goes -->
+  <div class="infoblock">
+    <h1 class="sectitle">Featured Outreach</h1>
   </div>
+  <div id="featured" class="container"></div>
+  <div class="infoblock">
+    <h1 class="sectitle">Classes & Volunteering</h1>
+  </div>
+  <div id="classes" class="container"></div>
+  <div class="infoblock">
+    <h1 class="sectitle">FIRST Robotics Outreach</h1>
+  </div>
+  <div id="exhibitions" class="container"></div>
+  <div class="infoblock">
+    <h1 class="sectitle">Professional Development</h1>
+  </div>
+  <div id="professional" class="container"></div>
+  <div class="infoblock">
+    <h1 class="sectitle">Past Outreach</h1>
+  </div>
+  <div id="pastoutreach" class="container"></div>
+
   <footer>
     <div id="sponsors">
       <p>Special thanks to our wonderful sponsors</p>
@@ -201,63 +129,141 @@
         <p>Natick5436@gmail.com</p>
       </a>
     </div>
-    <p id="us">Copyright &copy; 2020 RoboNatick 5436 Aluminum Cobblers<br/>Natick High School | 15 West Street | Natick, Massachusetts 01760</p>
+    <p id="us">Copyright &copy; 2022 RoboNatick 5436 Aluminum Cobblers<br/>Natick High School | 15 West Street | Natick, Massachusetts 01760</p>
   </footer>
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/global.js"></script>
   <script>
-    let content = {
-      "fair": {
-        "image": "images/Hero.JPG",
-        "heading": "Extracurricular Fair",
-        "text": "Freshman and Sophomores visited club booths set up in the cafeteria the evening of September 23.  Our robotics team and our comrades from Team 6032 handed out candy and “I Love Robot” stickers to those passing by.  Due to the large quantity of stickers, a game was formed to tag as many people as possible with the stickers, which was great advertisement to make fair-goers aware of our club.  We also brought last year’s robots  to shoot rings for entertainment for spectators.  The recruitment campaign was highly successful, filling 2 pages with names of students interested in joining our club, and we added 5 freshmen, 2 sophomores, and a senior to our team."
-      },
-      "fresh": {
-      "image": "images/Hero.JPG",
-      "heading": "Freshman Challenge",
-      "text": "All newcomers that joined robotics face “the Freshman Challenge” at their first meeting that helps them decide if they want to become permanent members to the team.  They are given a bunch of parts and are tasked with “building something that moves”, a challenge designed to show newcomers that designing robots often requires innovative thinking when faced with unprecedented challenges."
+    let featured = [{
+      wide: true,
+      image: "seniorcenter.JPG",
+      title: "Senior Center Class",
+      text: "Collaborating with our sister robotics team, the Lightning Hawks, we taught a simple computer class at the Natick Senior Center for those having trouble with their digital personal devices. This class was held in October and January, with each session lasting 90 minutes. We had a total of 9 volunteers to serve 8 seniors and everybody felt satisfied with their electronics by the end of the class."
+    },
+    {
+      wide: false,
+      image: "teamseas.jpg",
+      title: "Team Seas",
+      text: "For two weekends in December, we set up a booth in front of the Natick Farmers Market to collect funds for the Team Seas environmental cleanup event. We raised $785 to remove 785 pounds of plastic out of the ocean!"
+    },
+    {
+      wide: false,
+      image: "battlebots.JPG",
+      title: "Battle Bots",
+      text: "Every Friday, we volunteer at the New England Science Technology to mentor students in creating battle bots."
+    }]
 
-      },
-      "fll": {
-        "image": "images/Hero.JPG",
-        "heading": "First Lego League",
-        "text": "During 2019, we volunteered for First Lego League every Friday to help kids build bottle rockets, batte bots, and NXTs among other things."
-      },
-      "nxt": {
-        "image": "images/Hero.JPG",
-        "heading": "Library NXT Class",
-        "text": "In the beginning of 2020, we taught a class at the Morse Institute Library to teach middle schoolers to build robots with NXTs. Unfortunately, the class had to be cancelled due to COVID-19."
-      },
-      "python": {
-        "image": "images/Hero.JPG",
-        "heading": "Python Class",
-        "text": "For 10 weeks, we did a weekly class teaching 10 middle-schoolers in our local district Python. Due to COVID the class was over Zoom. In the end we taught our students to create a real application."
-      },
-      "brazil": {
-        "image": "images/Hero.JPG",
-        "heading": "Brazilian Team",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-      },
-      "science": {
-        "image": "images/Hero.JPG",
-        "heading": "International Science Week",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-      }
-    }
-    var currentTab = "fair"; //keeps track of current tab
+    let classes = [{
+      image: "python.png",
+      title: "Python Programming Class",
+      date: "April - June 2021 & January - March 2022",
+      text: "For the past two years, we have been teaching an online, three-months-long Python programming class to middle schoolers in our local district. Classes take place every week on Wednesday through Zoom. From the class, our students have learned to code their own applications with the skills we taught."
+    },
+    {
+      image: "girlscouts.jpg",
+      title: "Girl Scouts LEGO Mindstorms NXT Class",
+      date: "February 2022",
+      text: "We hosted an NXT class at Fisk Church for a Girl Scouts Troop. The Girl Scouts worked in pairs alongside a member of our team to develop their own robot that could move forward based on a light sensor."
+    },
+    {
+      image: "Hero.JPG",
+      title: "Ham Radio Class",
+      date: "",
+      text: "To spread our passion in STEM and electronics, we advertised New England Science Technology's free, beginner-friendly <a href='https://nescitech.org/shop/on-line-license-course-technician/'>ham radio class</a> to the entire Natick High School through the daily announcements. The class directly prepares students to obtain their FCC Technician License and was taken by several seniors on our team two years ago."
+    },
+    {
+      image: "Hero.JPG",
+      title: "Senior Computer Tutorials Youtube Channel",
+      date: "January 2022 - Present",
+      text: "To assist seniors all around the world with their technology devices, we created the <a href='https://www.youtube.com/channel/UCLeDt6aLs4Wsgw4ouQlA8mA'>Computer Tutorials for Seniors</a> Youtube Channel where we post simple video tutorials guiding seniors in navigating the browser and internet."
+    }]
 
-    //loads default content
-    $("#content").append(`<img src="${content[currentTab]["image"]}" alt="${content[currentTab]["heading"]}"><h1>${content[currentTab]["heading"]}</h1><p>${content[currentTab]["text"]}</p>`)
+    let exhibitions = [{
+      image: "Hero.JPG",
+      title: "Freight Frenzy Kickoff",
+      date: "September 2021",
+      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dictum finibus lacus sit amet congue. Nunc fringilla risus vel erat faucibus, et aliquam magna iaculis"
+    },
+    {
+      image: "extracurricularfair.jpg",
+      title: "Extracurricular Fair",
+      date: "September 2021",
+      text: "During the Extracurricular Fair, the entire RoboNatick club set up booths in the school cafeteria for freshmen and sophomores to visit. In addition to showcasing our Ultimate Goal robots, we handed out candy and “I Love Robots” stickers to those passing by. The recruitment campaign was highly successful, filling two pages with names of students interested in joining our club. From this event, we recruited 5 freshmen, 2 sophomores, and a senior to our team."
+    },
+    {
+      image: "mall.jpg",
+      title: "Natick Mall Exhibition",
+      date: "February 2022",
+      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dictum finibus lacus sit amet congue. Nunc fringilla risus vel erat faucibus, et aliquam magna iaculis"
+    },
+    {
+      image: "Hero.JPG",
+      title: "Natick Preschool Showcase",
+      date: "February 2022",
+      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dictum finibus lacus sit amet congue. Nunc fringilla risus vel erat faucibus, et aliquam magna iaculis"
+    },
+    {
+      image: "Hero.JPG",
+      title: "Freshman Challenge",
+      date: "September 2021",
+      text: "All newcomers that join our team face the \"Freshman Challenge\" at their first meeting that helps them decide if they want to become permanent members to the team.  They are given a bunch of parts and are tasked with building something that moves, a challenge designed to show newcomers that designing robots often requires innovative thinking when faced with unprecedented challenges."
+    },
+    {
+      image: "Hero.JPG",
+      title: "Minecart",
+      date: "December 2021 - PRESENT",
+      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dictum finibus lacus sit amet congue. Nunc fringilla risus vel erat faucibus, et aliquam magna iaculis"
+    }]
 
-    //tab styling, changing images based on tab clicked, animation
-    $(".tab").click(function() {
-      $("#content").empty();
-      $("#" + currentTab).removeClass("active");
-      currentTab = this.id;
-      $(this).addClass("active");
-      $("#content").append(`<img src="${content[currentTab]["image"]}" alt="${content[currentTab]["heading"]}"><h1>${content[currentTab]["heading"]}</h1><p>${content[currentTab]["text"]}</p>`)
-      ScrollReveal().sync();
+    let professional = [
+    {
+      image: "Hero.JPG",
+      title: "Boston Dynamics",
+      date: "March 2022",
+      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dictum finibus lacus sit amet congue. Nunc fringilla risus vel erat faucibus, et aliquam magna iaculis"
+    },
+    {
+      image: "Hero.JPG",
+      title: "Guest Speakers",
+      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dictum finibus lacus sit amet congue. Nunc fringilla risus vel erat faucibus, et aliquam magna iaculis"
+    }]
+
+    let pastoutreach = [{
+      image: "Hero.JPG",
+      title: "FIRST Lego League",
+      text: "During 2019, we volunteered for First Lego League every Friday to help kids build bottle rockets, batte bots, and NXTs among other things."
+    },
+    {
+      image: "Hero.JPG",
+      title: "Brazilian Team Collaboration",
+      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dictum finibus lacus sit amet congue. Nunc fringilla risus vel erat faucibus, et aliquam magna iaculis"
+    },
+    {
+      image: "Hero.JPG",
+      title: "International Science Week Collaboration",
+      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dictum finibus lacus sit amet congue. Nunc fringilla risus vel erat faucibus, et aliquam magna iaculis"
+    },
+    {
+      image: "Hero.JPG",
+      title: "Morse Institute Library LEGO Mindstorms NXT Class",
+      text: "In the beginning of 2020, we hosted a class at the Morse Institute Library to teach middle schoolers to build robots with NXTs. Unfortunately, the class had to be cancelled due to COVID-19."
+    }]
+
+    featured.forEach(event => {
+      $("#featured").append(`<div class="bigoutreachwrap ${event.wide ? "wide" : ""}"><div class="bigoutreach" style="background-image: url(images/${event.image});"><div class="bigblack"></div><div class="bigtext"><h2 class="bigtitle">${event.title}</h2><p class="bigcaption">${event.text}</p></div></div></div>`)
     })
+
+    addToSection("classes", classes)
+    addToSection("exhibitions", exhibitions)
+    addToSection("professional", professional)
+    addToSection("pastoutreach", pastoutreach)
+
+    function addToSection(id, array) {
+      array.forEach(event => {
+        $(`#${id}`).append(`<div class="outreachwrap"><div class="outreach"><img class="outreachimg" src="images/${event.image}"/><div class="outreachtext"><h3 class="outreachtitle">${event.title}</h3>${event.date ? "<h4 class='outreachdate'>" + event.date + "</h4>" : ""}<p class="outreachcaption">${event.text}</p></div></div></div>`)
+      })
+      $(`#${id}`).append(`<div class="placeholder"></div>`)
+    }
   </script>
 </body>
 

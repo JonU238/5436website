@@ -12,6 +12,10 @@ html {
 * {
   box-sizing: border-box; /* contains the padding inside the element dimensions */
 }
+a {
+  text-decoration: none;
+  color: #b71b1b;
+}
 /*START OF NAVBAR CSS*/
 nav
 {
