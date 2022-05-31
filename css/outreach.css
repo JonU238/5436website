@@ -54,7 +54,7 @@
 
 .outreachwrap {
   width: 33.33%;
-  height: 500px;
+  height: 400px;
   padding: 0.5em;
   min-width: 350px;
   flex-grow: 1;
@@ -84,11 +84,11 @@
 .outreachdate {
   font-size: 1em;
   text-transform: uppercase;
-  margin-top: 0.25em;
+  margin-top: 0.5em;
 }
 .outreachcaption {
   padding-top: 0.5em;
-  line-height: 1.25;
+  line-height: 1.35;
 }
 .placeholder {
   width: 66.67%;

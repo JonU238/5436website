@@ -110,46 +110,46 @@
   <script>
     let content = {
       "freight": {
-        "image": "images/Hero.JPG",
+        "image": "freightfrenzy.webp",
         "heading": "2021-2022: Freight Frenzy",
         "text": "We are working really hard to ensure that everything goes as smoothly as possible. We have structured a team to have a project manager that is in charge of making sure we stay on task and keep working to the best of our abilities through communications and time management. We are also working hard to ensure that our outreach is as capable as possible and that we do the most good as possible, especially in light of the events of last year."
       },
       "ultimate": {
-        "image": "images/Hero.JPG",
+        "image": "Hero.JPG",
         "heading": "2020-2021: Ultimate Goal",
-        "text": ""
+        "text": "2020 - 2021 was a strange time for our organization as it was for everyone. Thanks to the pandemic we were unable to meet at the school due to covid concerns, but we were more than welcome to find a new venue for our work. And so we called on our connection and good relationship with New England Sci Tech to ask them if there was any way for us to work with them. We were able to work out a deal where we would pay membership, and they would let us use the back room as our new lab. From there we got to work on the robot. We went through several designs before deciding on our final robot. Ultimate Goal was an exceedingly exciting challenge for us, and more than that it was just plain fun, and through all the trials and tribulations we had to endure throughout covid we managed to prevail and even excel despite the more difficult circumstances."
       },
       "skystone": {
-        "image": "images/Hero.JPG",
+        "image": "Hero.JPG",
         "heading": "2019-2020: Skystone",
         "text": "This year was our golden age and an example of what we will further strive to be in the future. After the last season started with no prior experience when it came to actually building, leading, or programming outside of two people, we weren't expecting much out of that season. Mostly we wanted to learn from our mistakes and fonnal them into this year, and man did that pay off. At the start of this year we hadn't lost a single member and we were ready to get to work the second the kickoff was announced. With our new members being taught, the leadership with the team's full confidence, and the builders and programmers volunteering to work around the clock on both the robot and outreach it's no wonder that this year we got runner up to inspire, qualifying us for worlds. Unfortunately Covid went into effect one week later so worlds were canceled, but we intend to keep up the momentum."
       },
       "rover": {
-        "image": "images/Hero.JPG",
+        "image": "Hero.JPG",
         "heading": "2018-2019: Rover Ruckus",
         "text": "This season was a turning point for the team as a whole. At the start of this year we had two people on the team that had any idea what they were doing, and a whole bunch of freshmen, and new members. All together we had to pull a lot together with not much time or knowhow to do it. However despite this we did our best, both the vets and the new people, and created the Aluminum Cobblers you see today. We ended up qualifying for states against all odds and doing quite well for a novice team at states. It was a year of great strength building."
       },
       "relic": {
-        "image": "images/Hero.JPG",
+        "image": "Hero.JPG",
         "heading": "2017-2018: Relic Recovery",
         "text": "Our relic recovery season was the last season with a lot of our old members now alumni. We competed in two qualifiers and got the \"Motivate\" award. Our team made it to the State Championship this year."
       },
       "beyond": {
-        "image": "images/Hero.JPG",
+        "image": "Hero.JPG",
         "heading": "2016-2017: Velocity Vortex",
         "text": "For this season team 5436 advanced to Massachusetts state level competition before our season drew to a close. In our second of two qualifiers of the Velocity Vortex season we made it to the finals match when we lost. We thought there would not be a chance for us to advance to the state level, but we won the ‘Think’ Award and were then able to advance through to the next level of competition. "
       }
     }
     var currentTab = "freight"; //keeps track of current tab
     //loads default content
-    $("#content").append(`<img src="${content[currentTab]["image"]}" alt="${content[currentTab]["heading"]}"><h1>${content[currentTab]["heading"]}</h1><p>${content[currentTab]["text"]}</p>`)
+    $("#content").append(`<img src="images/${content[currentTab]["image"]}" alt="${content[currentTab]["heading"]}"><h1>${content[currentTab]["heading"]}</h1><p>${content[currentTab]["text"]}</p>`)
     //tab styling, changing images based on tab clicked, animation
     $(".tab").click(function() {
       $("#content").empty();
       $("#" + currentTab).removeClass("active");
       currentTab = this.id;
       $(this).addClass("active");
-      $("#content").append(`<img src="${content[currentTab]["image"]}" alt="${content[currentTab]["heading"]}"><h1>${content[currentTab]["heading"]}</h1><p>${content[currentTab]["text"]}</p>`)
+      $("#content").append(`<img src="images/${content[currentTab]["image"]}" alt="${content[currentTab]["heading"]}"><h1>${content[currentTab]["heading"]}</h1><p>${content[currentTab]["text"]}</p>`)
       ScrollReveal().sync();
     })
   </script>
